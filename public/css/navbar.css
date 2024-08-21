@@ -1,0 +1,25 @@
+.nav-bg-color {
+    background-color: #005fac;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: end;
+}
+
+.nav-logo-img{
+    height: 59px;
+}
+
+.nav-link{
+    padding: 20px!important;
+    color: white;
+}
+
+.navbar-nav .nav-link.active{
+    color: white;
+}
+
+.nav-link:hover{
+    background-color: black;
+    color: white;
+}

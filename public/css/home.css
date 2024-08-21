@@ -1,0 +1,377 @@
+/* banner section  */
+.video-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Default height for larger screens */
+    overflow: hidden;
+}
+
+.video-banner video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.banner-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.banner-content .btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+
+/* end banner  */
+
+/* journy section  */
+.journy-margin {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.journy-heading {
+    color: #005fac !important;
+    margin: 40 0px !important;
+}
+
+/*end journy section  */
+
+
+
+/* industries_footprint section  */
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section-width {
+    width: 900px;
+    margin: 0px auto;
+    object-fit: cover;
+}
+
+.maindiv-position {
+    position: relative;
+}
+
+.relative-div {
+    position: relative;
+
+}
+
+.absolute-div {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    background: rgba(3, 78, 122, 0.3);
+    color: white;
+}
+
+.absolute-div p {
+    padding: 10px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.industries_footprint_mobile_margin {
+    margin-bottom: 50px;
+}
+
+/* end industries_footprint section  */
+
+/* associate_industry_section */
+
+.associate_industry_section {
+    margin-bottom: 50px;
+}
+
+/* end of  */
+
+
+/* milestones section  */
+.milestones_section {
+    padding: 60px 0px;
+    background-image: url("https://edison-bd.com/images/milestone/milestone-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.milestones_section_width {
+    width: 75%;
+}
+
+.milestones {
+    width: 60%;
+    color: white;
+}
+
+.milestones h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.milestones ul {
+    margin: 0;
+    padding: 0;
+}
+
+.milestones ul li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.milestones ul li p {
+    width: 60%;
+    margin: 0;
+}
+
+.milestones ul li svg {
+    margin-right: 10px;
+}
+
+
+
+
+.milestones_image {
+    width: 35%;
+}
+
+.flexgap {
+    gap: 0px 50px;
+}
+
+/* end of milestones section */
+
+
+
+/* start core_businessess section  */
+
+.core_businessess {
+    margin: 60px 0px;
+}
+
+.core_businessess_img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.core_businessess_img a img {
+    width: 195px;
+    height: 84px;
+}
+
+/* end core_businessess  */
+
+
+/* start brand section  */
+.brand {
+    margin: 60px 0px;
+}
+
+.brand_img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.brand_img a img {
+    width: 195px;
+    height: 84px;
+}
+
+/* end brand section  */
+
+/* start associate_businesses  */
+.associate_businesses {
+    margin: 60px 0px;
+}
+
+.associate_businesses_img {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.associate_businesses_img a img {
+    width: 195px;
+    height: 84px;
+}
+
+/* end associate_businesses  */
+
+/* start our_values  */
+
+.our_values {
+    padding: 60px 0px;
+    background-color: black;
+}
+
+.our_values h1 {
+    color: white;
+}
+
+.our_values p {
+    color: white;
+}
+
+.our_values_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.our_value_width {
+    width: 90%;
+    margin: 0px auto;
+}
+
+/* end our_value */
+
+/* start headline section  */
+.headlines {
+    padding: 60px 0px;
+    background-color: black;
+}
+
+.headlines h1 {
+    color: white;
+}
+
+.headlines p {
+    color: white;
+}
+
+.headlines_width {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.headlines_width a button {
+    background-color: #005fac;
+}
+
+.headlines_post {
+    text-decoration: none;
+    width: 230px;
+}
+
+.headlines_post img {
+    width: 230px;
+    height: 230px;
+}
+
+.headlines_post p {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* end headline section  */
+
+/* start contact section  */
+.contact {
+    padding: 60px 0px;
+    background-image: url("https://www.edison-bd.com/images/map-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.contact h1 {
+    color: white;
+    margin-bottom: 50px;
+}
+
+.contact_main {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.contact_location {
+    background-color: rgba(4, 4, 4, 0.80);
+    color: white;
+    width: 450px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.contact_number{
+    margin-top: 30px;
+    background-color: rgba(4, 4, 4, 0.80);
+    color: white;
+    width: 450px;
+    border-radius: 18px;
+    text-align: center;
+    padding: 20px 0px; 
+}
+.contact_number a{
+    text-decoration: none;
+    color: white;
+}
+
+
+@media (max-width: 576px) {
+    .video-banner {
+        height: 80vh;
+        /* Set height to 50% of the viewport on small screens */
+    }
+
+    .banner-content {
+        font-size: 1rem;
+    }
+
+    .milestones {
+        width: 90%;
+    }
+
+    .milestones_image {
+        width: 90%;
+    }
+
+    .milestones_section_width {
+        width: 100%;
+    }
+
+    .milestones ul li p {
+        width: 100%;
+    }
+    .contact_location{
+        width: 100%;
+    }
+    .contact_number{
+        width: 100%;
+    }
+    .map img{
+        width: 90%;
+       margin-top: 30px;
+    }
+}

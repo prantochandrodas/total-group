@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\frontend\AboutusController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\NewsController;
+use App\Http\Controllers\frontend\ProductDetailsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +22,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[HomeController::class,'index'])->name('home.index');
+Route::get('/product-detail',[ProductDetailsController::class,'index'])->name('product-details.index');
+Route::get('/about',[AboutusController::class,'index'])->name('abouts.index');
+Route::get('/news',[NewsController::class,'index'])->name('news.index');

@@ -58,6 +58,29 @@
 
 
 
+/* project section  */
+.project_section{
+    width: 90%;
+    margin: 60px auto;
+}
+.product_link{
+    text-decoration: none;
+    color: black;
+    margin: 0px auto;
+}
+.product_btn{
+    display: flex;
+    justify-content: center;
+}
+.product_btn a{
+    margin-top: 30px;
+    background-color: #005fac;
+    color: white;
+}
+/* end of project section  */
+
+
+
 /* industries_footprint section  */
 
 .gallery-image {

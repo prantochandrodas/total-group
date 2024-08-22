@@ -1,0 +1,29 @@
+.footer{
+    background-color: #005fac;
+}
+.footer p{
+    margin: 0;
+}
+.footer_width{
+    width: 90%;
+    padding: 55px 0px;
+    margin: 0px auto;
+    border-bottom: 1px solid black;
+}
+.footer_logo img{
+    height: 59px;
+}
+.footer_contact img{
+    width: 24px;
+    height: 24px;
+}
+.footer_copyright{
+    padding: 10px 0px;
+    width: 90%;
+    margin: 0px auto;
+}
+.footer_privacy a{
+    text-decoration: none;
+    color: white;
+}
+

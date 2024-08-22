@@ -1,0 +1,58 @@
+.about_description h1{
+    color: #005fac;
+}
+.about_description p{
+    color: #646464;
+}
+.about_images{
+    display: flex;
+    flex-wrap: wrap;
+}
+.about_images img{
+    width: 360px;
+    height: 122px;
+}
+.about_banner_img img{
+    height: 100vh;
+}
+.mission_vision_section{
+    margin: 60px 0px;
+}
+.mission_vision_section img{
+    width: 570px;
+    height: 435px;
+}
+.mission_vision_section h1{
+    font-weight: 700;
+    color: #005fac;
+}
+.mission_vision_section p{
+    font-size: 20px;
+    color: #646464;
+}
+.management{
+    padding: 60px 0px;
+    background-color: #005fac;
+}
+.management h1{
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.management img{
+    width: 280px;
+    height: 100%;
+}
+
+
+/* Responsive adjustments for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+    .mission_vision_section{
+        text-align: center;
+    }
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 480px) {
+    
+}

@@ -1,7 +1,6 @@
 @extends('layouts.frontend')
 @section('frontend-content')
     {{-- start banner section  --}}
-
     <section class="video-banner">
         <!-- Video Background -->
         <video autoplay muted loop>
@@ -16,7 +15,6 @@
             <a href="#" class="btn btn-primary">Contact Now</a>
         </div>
     </section>
-
     {{-- end of banner section  --}}
 
 
@@ -38,6 +36,50 @@
         </div>
     </div>
     {{-- end of journy section  --}}
+
+
+    {{-- start product section  --}}
+    <div class="project_section">
+        <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center mb-4">Product</h2>
+        <div class="text-center d-flex gap-4 justify-content-center flex-wrap">
+            <div class="card" style="width: 17rem;">
+                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
+                    class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
+                </div>
+            </div>
+            <div class="card" style="width: 17rem;">
+                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
+                    class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
+                </div>
+            </div>
+            <div class="card" style="width: 17rem;">
+                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
+                    class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
+                </div>
+            </div>
+            <div class="card" style="width: 17rem;">
+                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
+                    class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
+                </div>
+            </div>
+        </div>
+
+       <div class="product_btn">
+        <a href="#" class="btn product_btn">View all</a>
+       </div>
+        
+    </div>
+
+    {{-- end product section  --}}
+
 
 
 
@@ -554,36 +596,31 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="our_values_main">
-                                <a href=""><img
-                                        src="https://www.edison-bd.com/images/values/1.svg"
+                                <a href=""><img src="https://www.edison-bd.com/images/values/1.svg"
                                         alt=""></a>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="our_values_main">
-                                <a href=""><img
-                                        src="https://www.edison-bd.com/images/values/2.svg"
+                                <a href=""><img src="https://www.edison-bd.com/images/values/2.svg"
                                         alt=""></a>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="our_values_main">
-                                <a href=""><img
-                                        src="https://www.edison-bd.com/images/values/3.svg"
+                                <a href=""><img src="https://www.edison-bd.com/images/values/3.svg"
                                         alt=""></a>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="our_values_main">
-                                <a href=""><img
-                                        src="https://www.edison-bd.com/images/values/4.svg"
+                                <a href=""><img src="https://www.edison-bd.com/images/values/4.svg"
                                         alt=""></a>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="our_values_main">
-                                <a href=""><img
-                                        src="https://www.edison-bd.com/images/values/5.svg"
+                                <a href=""><img src="https://www.edison-bd.com/images/values/5.svg"
                                         alt=""></a>
                             </div>
                         </div>
@@ -600,32 +637,41 @@
     <div class="headlines">
         <div class="headlines_width">
             <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1">We Have Made Headlines !</h1>
-            <p>Exploring the Achievements Across Our Group Entities</p> 
+            <p>Exploring the Achievements Across Our Group Entities</p>
             <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-3 flex-md-wrap">
                 <a class="headlines_post" href="#">
-                    <img class="rounded-4" src="https://cms.webmanza.com/uploads/Snipaste_2024_03_10_14_41_34_45900df06b.png" alt="">
+                    <img class="rounded-4"
+                        src="https://cms.webmanza.com/uploads/Snipaste_2024_03_10_14_41_34_45900df06b.png" alt="">
                     <p>Symphony to launch its latest smartphone Z70</p>
                 </a>
                 <a class="headlines_post" href="#">
-                    <img class="rounded-4" src="https://api.admin.webmanza.com/cc1f39ea-d2a1-49bf-bd77-738a3f6c25db/uploads/268_1708323635585-13-crorejpg.jpeg" alt="">
+                    <img class="rounded-4"
+                        src="https://api.admin.webmanza.com/cc1f39ea-d2a1-49bf-bd77-738a3f6c25db/uploads/268_1708323635585-13-crorejpg.jpeg"
+                        alt="">
                     <p>130 Million Users for Symphony Mobile</p>
                 </a>
                 <a class="headlines_post" href="#">
-                    <img class="rounded-4" src="https://api.admin.webmanza.com/cc1f39ea-d2a1-49bf-bd77-738a3f6c25db/uploads/268_1710057519611-snipaste2024-03-1013-58-21png.png" alt="">
+                    <img class="rounded-4"
+                        src="https://api.admin.webmanza.com/cc1f39ea-d2a1-49bf-bd77-738a3f6c25db/uploads/268_1710057519611-snipaste2024-03-1013-58-21png.png"
+                        alt="">
                     <p> A Grateful Acknowledgment: MD Sir's Impact on Women's Cricket</p>
                 </a>
                 <a class="headlines_post" href="#">
-                    <img class="rounded-4" src="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2023/05/02/motorola_edison.jpg" alt="">
+                    <img class="rounded-4"
+                        src="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2023/05/02/motorola_edison.jpg"
+                        alt="">
                     <p>Edison Group becomes Motorola Mobile's new national distributor</p>
                 </a>
                 <a class="headlines_post" href="#">
-                    <img class="rounded-4" src="https://cms.webmanza.com/uploads/iso_image_44704ba8da.png" alt="">
+                    <img class="rounded-4" src="https://cms.webmanza.com/uploads/iso_image_44704ba8da.png"
+                        alt="">
                     <p>Edison Industries Ltd. Is Now ISO Certified</p>
                 </a>
             </div>
-            <a href="#" class="d-flex justify-content-center"><button class="btn btn-primary">View More</button></a>
-        </div>  
-    </div>    
+            <a href="#" class="d-flex justify-content-center"><button class="btn btn-primary">View
+                    More</button></a>
+        </div>
+    </div>
     {{-- end heading section  --}}
 
 
@@ -634,31 +680,29 @@
         <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Questions? <br>
             Let's connect</h1>
 
-            <div class="contact_main d-flex flex-column flex-md-row align-items-center">
-                <div class="me-4">
-                    <div class="contact_location">
-                        <img src="https://www.edison-bd.com/images/contact-map.svg" alt="">
-                        <p>Our Head Office</p>
-                        <p>Rangs Babylonia, Level 6-9, 246, Bir Uttam Mir
-                            Shawkat Sarak,  Tejgaon I/A, Dhaka-1208
-                        </p>
-                    </div>
-                    <div class="contact_number">
-                        <img src="https://www.edison-bd.com/images/contact-phone.svg" alt="">
-                        <p>Let's Speak</p>
-                        <a href="tel:(+880) 2 8878057">
-                            <p>(+880) 2 8878057</p>
-                        </a>
-                    </div>
+        <div class="contact_main d-flex flex-column flex-md-row align-items-center">
+            <div class="me-4">
+                <div class="contact_location">
+                    <img src="https://www.edison-bd.com/images/contact-map.svg" alt="">
+                    <p>Our Head Office</p>
+                    <p>Rangs Babylonia, Level 6-9, 246, Bir Uttam Mir
+                        Shawkat Sarak, Tejgaon I/A, Dhaka-1208
+                    </p>
                 </div>
-                <div class="map">
-                    <a href="https://maps.app.goo.gl/7LVpTXAhcNS59n4MA" class="css-1wr59ft"><img alt="location" src="https://www.edison-bd.com/images/map.png" class="chakra-image css-2qcby8"></a>
+                <div class="contact_number">
+                    <img src="https://www.edison-bd.com/images/contact-phone.svg" alt="">
+                    <p>Let's Speak</p>
+                    <a href="tel:(+880) 2 8878057">
+                        <p>(+880) 2 8878057</p>
+                    </a>
                 </div>
             </div>
-            
+            <div class="map">
+                <a href="https://maps.app.goo.gl/7LVpTXAhcNS59n4MA" class="css-1wr59ft"><img alt="location"
+                        src="https://www.edison-bd.com/images/map.png" class="chakra-image css-2qcby8"></a>
+            </div>
+        </div>
+
     </div>
     {{-- end contact section  --}}
-
-
-
 @endsection

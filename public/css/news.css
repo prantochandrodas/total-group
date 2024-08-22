@@ -1,0 +1,114 @@
+.news_banner {
+    height: 100vh;
+    background-color: black;
+}
+
+.news_banner_slider {
+    padding: 50px;
+    height: 80vh;
+}
+
+.news-carousel-item {
+    position: relative;
+    /* Ensure that overlay and text are positioned relative to this item */
+}
+
+.news-carousel-item img {
+    height: 450px;
+    width: 100%;
+    /* Ensure image covers full width */
+    border-radius: 10px;
+    object-fit: cover;
+    /* Ensure the image covers the area without distortion */
+}
+
+.news-carousel-item a {
+    text-decoration: none;
+    position: relative;
+    display: block;
+}
+
+.news-carousel-item h1 {
+    font-weight: 700;
+}
+
+.news-carousel-item p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.news-carousel-item .text-light {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: white;
+    /* Ensure text is readable on the overlay */
+    z-index: 1;
+    /* Place text above the overlay */
+}
+
+.news-carousel-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 19, 46, 0.6);
+    border-radius: 10px;
+    /* Match image border radius */
+    z-index: 0;
+    /* Place overlay below the text */
+}
+
+.news_headlines{
+    background-color: black;
+}
+.news_headlines p{
+    margin-bottom: 0;
+}
+.news_headlines_width{
+    width: 900px;
+    margin: 0px auto;
+}
+.news_headlines_width a{
+text-decoration: none;
+font-weight: 600;
+}
+
+/* Responsive adjustments for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+    .news_banner {
+        height: 80vh;
+
+    }
+
+    .news_banner_slider {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .news-carousel-item img {
+        height: 100%;
+    }
+}
+
+
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 480px) {
+    .news_banner {
+        height: 80vh;
+
+    }
+
+    .news_banner_slider {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .news-carousel-item img {
+        height: 100%;
+    }
+}

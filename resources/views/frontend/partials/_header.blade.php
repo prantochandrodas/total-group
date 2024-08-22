@@ -8,12 +8,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav navlink-color">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link active" aria-current="page" href="{{route('home.index')}}">Home</a>
+                <a class="nav-link" href="{{route('abouts.index')}}">About Us</a>
                 <a class="nav-link" href="#">Industries</a>
                 <a class="nav-link" href="#">Business Unit</a>
                 <a class="nav-link" href="#">Achievement</a>
-                <a class="nav-link" href="#">News</a>
+                <a class="nav-link" href="{{route('news.index')}}">News</a>
                 <a class="nav-link" href="#">Employee Engagement</a>
                 <a class="nav-link" href="#">Career</a>
                 <a class="nav-link" href="#">Get in Touch</a>

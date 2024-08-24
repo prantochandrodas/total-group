@@ -1,0 +1,40 @@
+.career{
+    padding: 30px 0px;
+}
+.career .card{
+    text-decoration: none;
+}
+.job-title:hover{
+    color: #005fac;
+    cursor: pointer;
+}
+.career_details{
+    padding: 60px 0px;
+}
+.career_details img{
+    
+    height: 600px;
+}
+.job_date{
+    color: #777;
+}
+.job_type{
+    font-weight: 700;
+    color: #777;
+}
+.job_age{
+    font-weight: 700;
+    color: #777; 
+}
+.job_gender{
+    font-weight: 700;
+    color: #777;
+}
+.job_experience{
+    font-weight: 700;
+    color: #777;
+}
+.card_hr{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #777;
+}

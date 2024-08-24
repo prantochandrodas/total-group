@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="{{asset('css/about.css')}}">
     {{-- news page css  --}}
     <link rel="stylesheet" href="{{asset('css/news.css')}}">
+    {{-- employee_engagement css --}}
+    <link rel="stylesheet" href="{{asset('css/employee_engagement.css')}}">
+    {{-- career css  --}}
+    <link rel="stylesheet" href="{{asset('css/career.css')}}">
 </head>
 
 <body>

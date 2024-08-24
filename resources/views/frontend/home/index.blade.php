@@ -12,7 +12,7 @@
         <!-- Centered Heading and Button -->
         <div class="banner-content">
             <p class="fs-1 fw-bold fst-sm-normal fs-sm-4">Welcome to Our Website</p>
-            <a href="#" class="btn btn-primary">Contact Now</a>
+            <a href="{{url('/')}}#connect" class="btn btn-primary">Contact Now</a>
         </div>
     </section>
     {{-- end of banner section  --}}
@@ -32,7 +32,7 @@
             <p class="fs-5 fs-sm-6 fs-md-5">Established in 2008, Edison Group has emerged as a dynamic conglomerate with a
                 rich legacy of success across diverse sectors. Our flagship brand, Symphony, stands as a powerhouse in local
                 mobile markets, while our foray into mobile production has further solidified our presence.</p>
-            <button type="button" class="btn btn-primary">Read More</button>
+            <a href="{{route('abouts.index')}}" type="button" class="btn btn-primary">Read More</a>
         </div>
     </div>
     {{-- end of journy section  --}}
@@ -84,7 +84,7 @@
 
 
     {{-- Industries Footprint section  --}}
-    <div class="container">
+    <div class="container" id="industry"> 
         <p class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Industries Footprint</p>
         <p class="fs-5 text-center">Core Industry</p>
         <div class="d-none d-md-block">
@@ -325,7 +325,7 @@
 
 
     {{-- Milestones  section  --}}
-    <div class="milestones_section">
+    <div class="milestones_section" id="milestones">
         <div
             class="d-flex flex-column flex-md-row align-items-center justify-center milestones_section_width  mx-auto flexgap">
             <div class="milestones">
@@ -418,7 +418,7 @@
 
 
     {{-- Core Businesses section  --}}
-    <div class="core_businessess">
+    <div class="core_businessess" id="business">
         <p class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Conglomerate Snapshot</p>
         <p class="fs-5 text-center">Core Businesses</p>
 
@@ -668,7 +668,7 @@
                     <p>Edison Industries Ltd. Is Now ISO Certified</p>
                 </a>
             </div>
-            <a href="#" class="d-flex justify-content-center"><button class="btn btn-primary">View
+            <a href="{{route('news.index')}}" class="d-flex justify-content-center"><button class="btn btn-primary">View
                     More</button></a>
         </div>
     </div>
@@ -676,7 +676,7 @@
 
 
     {{-- start contact section  --}}
-    <div class="contact">
+    <div class="contact" id="connect">
         <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Questions? <br>
             Let's connect</h1>
 

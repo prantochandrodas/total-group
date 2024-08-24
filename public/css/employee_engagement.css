@@ -1,0 +1,20 @@
+.album {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.album_post {
+    width: 300px;
+}
+
+.album_post img {
+    width: 300px;
+}
+
+.album_post p {
+    width: 90%;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+

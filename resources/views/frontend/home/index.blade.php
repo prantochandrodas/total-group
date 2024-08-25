@@ -4,15 +4,14 @@
     <section class="video-banner">
         <!-- Video Background -->
         <video autoplay muted loop>
-            <source src="{{ asset('video/Construction Promo Video - Construction Company - TranStudio - Vapi.mp4') }}"
-                type="video/mp4">
+            <source src="{{ asset('video/' . $banner->video) }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
         <!-- Centered Heading and Button -->
         <div class="banner-content">
-            <p class="fs-1 fw-bold fst-sm-normal fs-sm-4">Welcome to Our Website</p>
-            <a href="{{url('/')}}#connect" class="btn btn-primary">Contact Now</a>
+            <p class="fs-1 fw-bold fst-sm-normal fs-sm-4">{{ $banner->title }}</p>
+            <a href="{{ url('/') }}#connect" class="btn btn-primary">Contact Now</a>
         </div>
     </section>
     {{-- end of banner section  --}}
@@ -23,16 +22,14 @@
     <div class="container d-flex flex-lg-row flex-column gap-3 journy-margin align-items-center">
         <div>
             <!-- Image with img-fluid class only on mobile devices -->
-            <img src="https://www.edison-bd.com/images/about.png" alt="About Us" class="img-fluid d-block d-md-none">
+            <img src="{{ asset('images/' . $about->image) }}" alt="About Us" class="d-block d-md-none">
             <!-- Image without img-fluid class on larger screens -->
-            <img src="https://www.edison-bd.com/images/about.png" alt="About Us" class="d-none d-md-block">
+            <img src="{{ asset('images/' . $about->image) }}" alt="About Us" class="d-none about_img d-md-block">
         </div>
         <div>
-            <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 ">Explore Our Journey</h2>
-            <p class="fs-5 fs-sm-6 fs-md-5">Established in 2008, Edison Group has emerged as a dynamic conglomerate with a
-                rich legacy of success across diverse sectors. Our flagship brand, Symphony, stands as a powerhouse in local
-                mobile markets, while our foray into mobile production has further solidified our presence.</p>
-            <a href="{{route('abouts.index')}}" type="button" class="btn btn-primary">Read More</a>
+            <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 ">{{ $about->title }}</h2>
+            <p class="fs-5 fs-sm-6 fs-md-5">{{ $about->description }}</p>
+            <a href="{{ route('abouts.index') }}" type="button" class="btn btn-primary">Read More</a>
         </div>
     </div>
     {{-- end of journy section  --}}
@@ -42,40 +39,21 @@
     <div class="project_section">
         <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center mb-4">Product</h2>
         <div class="text-center d-flex gap-4 justify-content-center flex-wrap">
-            <div class="card" style="width: 17rem;">
-                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
-                    class="card-img-top p-4" alt="...">
-                <div class="card-body">
-                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
+            @foreach ($products as $item)
+                <div class="card" style="width: 17rem;">
+                    <img src="{{asset('images/'.$item->images[0]->image)}}"
+                        class="card-img-top p-4" alt="...">
+                    <div class="card-body">
+                        <a href="{{route('product-details.index',['slug'=>$item->slug])}}" class="product_link">{{$item->name}}</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card" style="width: 17rem;">
-                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
-                    class="card-img-top p-4" alt="...">
-                <div class="card-body">
-                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
-                </div>
-            </div>
-            <div class="card" style="width: 17rem;">
-                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
-                    class="card-img-top p-4" alt="...">
-                <div class="card-body">
-                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
-                </div>
-            </div>
-            <div class="card" style="width: 17rem;">
-                <img src="https://eshop.mepgroupbd.com/public/uploads/all/ZEQGEap8NCFIb5M4GuSZpZWtY4rm5Gd9Kuia3I8M.jpg"
-                    class="card-img-top p-4" alt="...">
-                <div class="card-body">
-                    <a href="{{route('product-details.index')}}" class="product_link">03 WATT LED - DL03BLT/LRL00327</a>
-                </div>
-            </div>
+            @endforeach
         </div>
 
-       <div class="product_btn">
-        <a href="#" class="btn product_btn">View all</a>
-       </div>
-        
+        <div class="product_btn">
+            <a href="{{ route('all-products') }}" class="btn product_btn">View all</a>
+        </div>
+
     </div>
 
     {{-- end product section  --}}
@@ -84,7 +62,7 @@
 
 
     {{-- Industries Footprint section  --}}
-    <div class="container" id="industry"> 
+    <div class="container" id="industry">
         <p class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Industries Footprint</p>
         <p class="fs-5 text-center">Core Industry</p>
         <div class="d-none d-md-block">
@@ -168,8 +146,8 @@
                     </div>
                     <div class="carousel-item">
                         <div class="relative-div">
-                            <img src="https://www.edison-bd.com/images/industry/core/footwear_new.png" class="d-block w-100"
-                                alt="...">
+                            <img src="https://www.edison-bd.com/images/industry/core/footwear_new.png"
+                                class="d-block w-100" alt="...">
                             <div class="absolute-div">
                                 <p>Footwear</p>
                             </div>
@@ -668,7 +646,8 @@
                     <p>Edison Industries Ltd. Is Now ISO Certified</p>
                 </a>
             </div>
-            <a href="{{route('news.index')}}" class="d-flex justify-content-center"><button class="btn btn-primary">View
+            <a href="{{ route('news.index') }}" class="d-flex justify-content-center"><button
+                    class="btn btn-primary">View
                     More</button></a>
         </div>
     </div>

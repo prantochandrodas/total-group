@@ -44,6 +44,11 @@
 /* end banner  */
 
 /* journy section  */
+.about_img{
+    width: 580px;
+    height: 580px;
+    border-radius: 15px;
+}
 .journy-margin {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -77,6 +82,12 @@
     background-color: #005fac;
     color: white;
 }
+.product_btn a:hover{
+    margin-top: 30px;
+    background-color: #005fac;
+    color: white;
+}
+
 /* end of project section  */
 
 

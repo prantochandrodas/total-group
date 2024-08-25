@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg  nav-bg-color">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img class="nav-logo-img" src="{{ asset('images/logo.jpg') }}" alt=""></a>
+        <a class="navbar-brand" href="{{route('home.index')}}"><img class="nav-logo-img" src="{{ asset('images/'.$application->logo) }}" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

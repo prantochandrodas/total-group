@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{asset('css/employee_engagement.css')}}">
     {{-- career css  --}}
     <link rel="stylesheet" href="{{asset('css/career.css')}}">
+    {{-- login css  --}}
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
 </head>
 
 <body>

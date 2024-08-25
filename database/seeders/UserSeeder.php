@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
-                'password' => Hash::make('password'), // Use hashing for passwords
+                'password' => Hash::make(12345), // Use hashing for passwords
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use Illuminate\Http\Request;
 
 class EmployeeEngagementController extends Controller
 {
     public function index(){
-        return view('frontend.employee_engagement.index');
+        $application=Application::first();
+        return view('frontend.employee_engagement.index',compact('application'));
     }
 
     public function details(){

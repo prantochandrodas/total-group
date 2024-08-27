@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\backend\home\CoreIndustryController;
 use App\Http\Controllers\backend\Home\HomeAboutController;
 use App\Http\Controllers\backend\Home\HomeBannerController;
 use App\Http\Controllers\backend\product\ProductController;
@@ -69,5 +70,16 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/product/distory/{id}', [ProductController::class, 'distroy'])->name('products.distroy');
     Route::delete('/product/delete-image/{id}', [ProductController::class, 'deleteImage'])->name('product.delete-image');
+    // end product route 
 
+
+    // start Core Industry route
+    Route::get('/core-industry', [CoreIndustryController::class, 'index'])->name('core-industries');
+    Route::get('/core-industry/getdata', [CoreIndustryController::class, 'getdata'])->name('core-industries.getdata');
+    Route::get('/core-industry/create',[CoreIndustryController::class,'create'])->name('core-industries.create');
+    Route::post('/core-industry/store', [CoreIndustryController::class, 'store'])->name('core-industries.store');
+    Route::get('/core-industry/edit/{id}', [CoreIndustryController::class, 'edit'])->name('core-industries.edit');
+    Route::put('/core-industry/update/{id}', [CoreIndustryController::class, 'update'])->name('core-industries.update');
+    Route::delete('/core-industry/distory/{id}', [CoreIndustryController::class, 'distroy'])->name('core-industries.distroy');
+    // end Core Industry route
 });

@@ -161,21 +161,21 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                     <!--end:Menu sub-->
 
                     <!--begin:Menu sub-->
-                    {{-- <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->is('schedule-metting') ? 'active' : '' }}"
-                                href="{{route('schedule-mettings.index')}}">
+                            <a class="menu-link {{ request()->is('core-industry') ? 'active' : '' }}"
+                                href="{{route('core-industries')}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Schedule-Metting</span>
+                                <span class="menu-title">Core-Industry</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
-                    </div> --}}
+                    </div>
                     <!--end:Menu sub-->
 
                     <!--begin:Menu sub-->

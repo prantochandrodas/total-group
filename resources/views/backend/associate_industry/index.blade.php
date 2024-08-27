@@ -33,7 +33,7 @@
     </style>
 
 @section('title')
-Core-Industry
+Associate-Industry
 @endsection
 
 
@@ -44,7 +44,7 @@ Core-Industry
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Core-Industry
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Associate-Industry
             </h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
@@ -75,7 +75,7 @@ Core-Industry
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
-        <a href={{ route('core-industries.create') }} class="btn btn-sm btn-primary">Add</a>
+        <a href={{ route('associate-industries.create') }} class="btn btn-sm btn-primary">Add</a>
         <table id="mydata" class="display" style="width:100%">
             <thead>
                 <tr>
@@ -96,7 +96,7 @@ Core-Industry
         $('#mydata').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('core-industries.getdata') }}',
+            ajax: '{{ route('associate-industries.getdata') }}',
             columns: [{
                     data: null, // Use null to signify that this column does not map directly to any data source
                     name: 'serial_number',

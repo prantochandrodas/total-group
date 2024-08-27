@@ -1,9 +1,14 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\backend\home\AssociateIndustry;
+use App\Http\Controllers\backend\home\AssociateIndustryController;
+use App\Http\Controllers\backend\home\CoreBusinessController;
 use App\Http\Controllers\backend\home\CoreIndustryController;
 use App\Http\Controllers\backend\Home\HomeAboutController;
 use App\Http\Controllers\backend\Home\HomeBannerController;
+use App\Http\Controllers\backend\home\MilestonesController;
+use App\Http\Controllers\backend\home\MilestonesImagesController;
 use App\Http\Controllers\backend\product\ProductController;
 use App\Http\Controllers\frontend\AboutusController;
 use App\Http\Controllers\frontend\CareerController;
@@ -82,4 +87,39 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/core-industry/update/{id}', [CoreIndustryController::class, 'update'])->name('core-industries.update');
     Route::delete('/core-industry/distory/{id}', [CoreIndustryController::class, 'distroy'])->name('core-industries.distroy');
     // end Core Industry route
+
+    // start Associate  Industry route
+    Route::get('/associate-industry', [AssociateIndustryController::class, 'index'])->name('associate-industries');
+    Route::get('/associate-industry/getdata', [AssociateIndustryController::class, 'getdata'])->name('associate-industries.getdata');
+    Route::get('/associate-industry/create',[AssociateIndustryController::class,'create'])->name('associate-industries.create');
+    Route::post('/associate-industry/store', [AssociateIndustryController::class, 'store'])->name('associate-industries.store');
+    Route::get('/associate-industry/edit/{id}', [AssociateIndustryController::class, 'edit'])->name('associate-industries.edit');
+    Route::put('/associate-industry/update/{id}', [AssociateIndustryController::class, 'update'])->name('associate-industries.update');
+    Route::delete('/associate-industry/distory/{id}', [AssociateIndustryController::class, 'distroy'])->name('associate-industries.distroy');
+    // end Associate  Industry route
+
+    // core bussiness 
+    Route::get('/milestone', [MilestonesController::class, 'index'])->name('milestones');
+    Route::get('/milestone/getdata', [MilestonesController::class, 'getdata'])->name('milestones.getdata');
+    Route::get('/milestone/create',[MilestonesController::class,'create'])->name('milestones.create');
+    Route::post('/milestone/store', [MilestonesController::class, 'store'])->name('milestones.store');
+    Route::get('/milestone/edit/{id}', [MilestonesController::class, 'edit'])->name('milestones.edit');
+    Route::put('/milestone/update/{id}', [MilestonesController::class, 'update'])->name('milestones.update');
+    Route::delete('/milestone/distory/{id}', [MilestonesController::class, 'distroy'])->name('milestones.distroy');
+    Route::delete('/milestone/delete-image/{id}', [MilestonesController::class, 'deleteImage'])->name('milestone.delete-image');
+    // end Milestones 
+
+    // start milestone image 
+    Route::get('/milestone-images',[MilestonesImagesController::class,'index'])->name('milestones-images');
+    Route::put('/milestone-images/{id}', [MilestonesImagesController::class, 'update'])->name('milestones-images.update');
+    // end milestone images
+
+    // core bussiness 
+    Route::get('/core-business', [CoreBusinessController::class, 'index'])->name('core-businesses');
+    Route::get('/core-business/getdata', [CoreBusinessController::class, 'getdata'])->name('core-businesses.getdata');
+    Route::get('/core-business/create',[CoreBusinessController::class,'create'])->name('core-businesses.create');
+    Route::post('/core-business/store', [CoreBusinessController::class, 'store'])->name('core-businesses.store');
+    Route::get('/core-business/edit/{id}', [CoreBusinessController::class, 'edit'])->name('core-businesses.edit');
+    Route::put('/core-business/update/{id}', [CoreBusinessController::class, 'update'])->name('core-businesses.update');
+    Route::delete('/core-business/distory/{id}', [CoreBusinessController::class, 'distroy'])->name('core-businesses.distroy');
 });

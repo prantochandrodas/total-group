@@ -15,7 +15,7 @@
     @endif
 
     @section('title')
-        All-Products 
+        Core-Products 
     @endsection
 
     <!-- validation errors -->
@@ -35,13 +35,13 @@
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">All-Products</h1>
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Core-Industry</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1" style="padding: 0">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a href="{{route('all-products')}}" class="text-muted text-hover-primary">Products</a>
+                    <a href="{{route('home.index')}}" class="text-muted text-hover-primary">Home</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -50,7 +50,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">All-Products</li>
+                <li class="breadcrumb-item text-muted">Core-Industry</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -63,7 +63,7 @@
 
     <div class="container-fluid">
         <div style="background-color: #f0f0f0; padding: 20px;">
-            <h2 style="text-align: center;">Create Products</h2>
+            <h2 style="text-align: center;">Create Core-Industry Post</h2>
         </div>
 
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">

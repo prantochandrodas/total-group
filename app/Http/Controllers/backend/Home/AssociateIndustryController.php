@@ -4,24 +4,23 @@ namespace App\Http\Controllers\backend\home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
-use App\Models\CoreIndustry;
+use App\Models\AssociateIndustry;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Str;
 
-class CoreIndustryController extends Controller
+class AssociateIndustryController extends Controller
 {
     public function index()
     {
         $application = Application::first();
-        return view('backend.core_industry.index', compact('application'));
+        return view('backend.associate_industry.index', compact('application'));
     }
 
     public function getdata(Request $request)
     {
 
         if ($request->ajax()) {
-            $data = CoreIndustry::orderBy('created_at', 'desc')->get();
+            $data = AssociateIndustry::orderBy('created_at', 'desc')->get();
             return DataTables::of($data)
                 ->addColumn('first_image', function ($row) {
                     if ($row->image) {
@@ -31,8 +30,8 @@ class CoreIndustryController extends Controller
                     }
                 })
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('core-industries.edit', $row->id);
-                    $deleteUrl = route('core-industries.distroy', $row->id);
+                    $editUrl = route('associate-industries.edit', $row->id);
+                    $deleteUrl = route('associate-industries.distroy', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -54,7 +53,7 @@ class CoreIndustryController extends Controller
     public function create()
     {
         $application = Application::first();
-        return view('backend.core_industry.create', compact('application'));
+        return view('backend.associate_industry.create', compact('application'));
     }
 
     public function store(Request $request)
@@ -76,21 +75,21 @@ class CoreIndustryController extends Controller
             $imagePath = $filename;
         }
 
-        CoreIndustry::create([
+        AssociateIndustry::create([
             'name' => $request->name,
             'link' => $request->link,
             'image' => $imagePath
         ]);
 
-        return redirect()->route('core-industries')
+        return redirect()->route('associate-industries')
             ->with('success', 'data created successfully.');
     }
 
     public function edit($id)
     {
         $application = Application::first();
-        $data = CoreIndustry::find($id);
-        return view('backend.core_industry.edit', compact('application', 'data'));
+        $data = AssociateIndustry::find($id);
+        return view('backend.associate_industry.edit', compact('application', 'data'));
     }
     public function update(Request $request, $id)
     {
@@ -102,7 +101,7 @@ class CoreIndustryController extends Controller
         ]);
         // Generate slug
 
-        $data = CoreIndustry::findOrFail($id);
+        $data = AssociateIndustry::findOrFail($id);
 
 
 
@@ -122,14 +121,14 @@ class CoreIndustryController extends Controller
         $data->name = $request->name;
         $data->link = $request->link;
         $data->save();
-        return redirect()->route('core-industries')
+        return redirect()->route('associate-industries')
             ->with('success', 'data updated successfully.');
     }
 
     public function distroy($id)
     {
         // Find the product by ID
-        $data = CoreIndustry::findOrFail($id);
+        $data = AssociateIndustry::findOrFail($id);
 
         // Delete associated images from the file system and database
         $imagePath = public_path('images/' . $data->image);
@@ -140,7 +139,7 @@ class CoreIndustryController extends Controller
         // Delete the product
         $data->delete();
 
-        return redirect()->route('core-industries')
+        return redirect()->route('associate-industries')
             ->with('success', 'data deleted successfully.');
     }
 }

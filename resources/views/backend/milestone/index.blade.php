@@ -18,13 +18,11 @@
             .hidden-field {
                 display: none;
             }
-
             .btn-group {
                 flex-direction: column;
                 gap: 3px;
                 /* Hide btn-group on mobile devices */
             }
-
             .img-size {
                 max-width: 50px;
                 height: 50px
@@ -33,7 +31,7 @@
     </style>
 
 @section('title')
-Core-Industry
+Milestones
 @endsection
 
 
@@ -44,14 +42,13 @@ Core-Industry
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Core-Industry
-            </h1>
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Milestones</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a href="{{ route('home.index') }}" class="text-muted text-hover-primary">Home</a>
+                    <a href="{{route('home.index')}}" class="text-muted text-hover-primary">Home</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
@@ -60,7 +57,7 @@ Core-Industry
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Core-Industry</li>
+                <li class="breadcrumb-item text-muted">Milestones</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -75,13 +72,12 @@ Core-Industry
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
-        <a href={{ route('core-industries.create') }} class="btn btn-sm btn-primary">Add</a>
+        <a href={{ route('milestones.create') }} class="btn btn-sm btn-primary">Add</a>
         <table id="mydata" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>Serial ID</th>
-                    <th>Name</th>
-                    <th class="hidden-field">Short Description</th>
+                    <th>Milestoneses</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -96,7 +92,7 @@ Core-Industry
         $('#mydata').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('core-industries.getdata') }}',
+            ajax: '{{ route('milestones.getdata') }}',
             columns: [{
                     data: null, // Use null to signify that this column does not map directly to any data source
                     name: 'serial_number',
@@ -108,20 +104,8 @@ Core-Industry
                     searchable: false
                 },
                 {
-                    data: 'name',
-                    name: 'name',
-                },
-                {
-                    data: 'link',
-                    name: 'link',
-                    render: function(data, type, row) {
-                        if (data && data !== null) {
-                            return '<a href="' + data + '">' + data + '</a>';
-                        } else {
-                            return ''; // Return an empty string if no data
-                        }
-                    },
-                    className: 'hidden-field'
+                    data: 'milestones',
+                    name: 'milestones',
                 },
                 {
                     data: 'first_image',

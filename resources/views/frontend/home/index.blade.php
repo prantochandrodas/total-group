@@ -22,7 +22,7 @@
     <div class="container d-flex flex-lg-row flex-column gap-3 journy-margin align-items-center">
         <div>
             <!-- Image with img-fluid class only on mobile devices -->
-            <img src="{{ asset('images/' . $about->image) }}" alt="About Us" class="d-block d-md-none">
+            <img src="{{ asset('images/' . $about->image) }}" alt="About Us" class="d-block d-md-none img-fluid">
             <!-- Image without img-fluid class on larger screens -->
             <img src="{{ asset('images/' . $about->image) }}" alt="About Us" class="d-none about_img d-md-block">
         </div>
@@ -40,11 +40,11 @@
         <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center mb-4">Product</h2>
         <div class="text-center d-flex gap-4 justify-content-center flex-wrap">
             @foreach ($products as $item)
-                <div class="card" style="width: 17rem;">
-                    <img src="{{asset('images/'.$item->images[0]->image)}}"
-                        class="card-img-top p-4" alt="...">
+                <div class="card project_section_card">
+                    <img src="{{ asset('images/' . $item->images[0]->image) }}" class="card-img-top p-4" alt="...">
                     <div class="card-body">
-                        <a href="{{route('product-details.index',['slug'=>$item->slug])}}" class="product_link">{{$item->name}}</a>
+                        <a href="{{ route('product-details.index', ['slug' => $item->slug]) }}"
+                            class="product_link">{{ $item->name }}</a>
                     </div>
                 </div>
             @endforeach
@@ -68,94 +68,90 @@
         <div class="d-none d-md-block">
             <div class="row section-width">
                 <!-- Large Image taking 50% width -->
-                <div class="col-md-6 mb-2 p-0 relative-div">
-                    <img src="https://www.edison-bd.com/images/industry/core/mobile.png" alt="Large Image"
-                        class="gallery-image">
-                    <div class="absolute-div">
-                        <p>Mobile</p>
-                    </div>
-                </div>
+                @if ($core_industry->isNotEmpty())
+                    <a href="{{ $core_industry[0]->link }}" class="col-md-6 mb-2 p-0 relative-div img-div-1">
+                        <img src="{{ asset('images/' . $core_industry[0]->image) }}" alt="Large Image" class=" w-100">
+                        <div class="absolute-div">
+                            <p>{{ $core_industry[0]->name }}</p>
+                        </div>
+                    </a>
+                @endif
+
                 <!-- Smaller Images taking the other 50% width -->
-                <div class="col-md-6">
-                    <div class="row">
-
-                        <div class="col-6 mb-2 pb-0  pe-0">
-                            <div class="relative-div">
-                                <img src="https://www.edison-bd.com/images/industry/core/logistics_new.png"
-                                    alt="Small Image 2" class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>Logistics</p>
+                @if ($core_industry->count() > 1)
+                    <div class="col-md-6">
+                        <div class="row">
+                            @foreach ($core_industry->slice(1, 2) as $industry)
+                                <div class="col-6 mb-2 pb-0 pe-0">
+                                    <a href="{{ $industry->link }}" class="relative-div img-div-2">
+                                        <img src="{{ asset('images/' . $industry->image) }}" alt="Small Image"
+                                            class=" w-100">
+                                        <div class="absolute-div">
+                                            <p>{{ $industry->name }}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-6 mb-2 pe-0">
-                            <div class="relative-div">
-                                <img src="https://www.edison-bd.com/images/industry/core/power.png" alt="Small Image 2"
-                                    class="gallery-image">
-                                <div class="absolute-div">
-                                    <p>Power & Supplies</p>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
 
-
-                        <!-- One image in the second row -->
-                        <div class="col-12 pe-0">
-                            <div class="relative-div">
-                                <img src="https://www.edison-bd.com/images/industry/core/footwear_new.png"
-                                    alt="Small Image 3" class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>Footwear</p>
+                            <!-- One image in the second row -->
+                            @if ($core_industry->count() > 3)
+                                <div class="col-12 pe-0">
+                                    <a href="{{ $core_industry[3]->link }}" class="relative-div img-div-3">
+                                        <img src="{{ asset('images/' . $core_industry[3]->image) }}" alt="Small Image"
+                                            class=" w-100">
+                                        <div class="absolute-div">
+                                            <p>{{ $core_industry[3]->name }}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
+
+            <!-- Additional images if any -->
+            @if ($core_industry->count() > 4)
+                <div class="d-md-flex d-none flex-wrap gap-1 section-width">
+                    @foreach ($core_industry->slice(4) as $industry)
+                        <a href="{{ $industry->link }}" class="col-md-3 img-div-4 p-0 relative-div">
+                            <img src="{{ asset('images/' . $industry->image) }}" alt="Additional Image" class=" w-100">
+                            <div class="absolute-div">
+                                <p>{{ $industry->name }}</p>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
-        {{-- slider for mobile view  --}}
         <div class="d-block d-md-none industries_footprint_mobile_margin">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="relative-div">
-                            <img src="https://www.edison-bd.com/images/industry/core/mobile.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>Mobile</p>
-                            </div>
+                    @foreach ($core_industry as $index => $industry)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <a href="{{$industry->link}}" class="relative-div">
+                                <img style="height: 300px; width: 100%; object-fit: cover;" src="{{ asset('images/' . $industry->image) }}" class="d-block w-100"
+                                    alt="{{ $industry->name }}">
+                                <div class="absolute-div">
+                                    <p>{{ $industry->name }}</p>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://www.edison-bd.com/images/industry/core/logistics_new.png"
-                                class="d-block w-100" alt="...">
-                            <div class="absolute-div">
-                                <p>Logistics</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://www.edison-bd.com/images/industry/core/power.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>Power & Supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://www.edison-bd.com/images/industry/core/footwear_new.png"
-                                class="d-block w-100" alt="...">
-                            <div class="absolute-div">
-                                <p>Footwear</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
             </div>
         </div>
+    </div>
+    {{-- slider for mobile view  --}}
+
     </div>
     {{-- end Industries Footprint section  --}}
 
@@ -169,134 +165,116 @@
                 <!-- Smaller Images taking the other 50% width -->
                 <div class="col-md-6">
                     <div class="row">
-
-                        <div class="col-6 mb-2 pb-0  pe-0">
-                            <div class="relative-div">
-                                <img src="https://edison-bd.com/images/industry/associate/vas.png" alt="Small Image 2"
-                                    class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>Value-Added Services</p>
+                        @if ($associate_industry->count() > 0)
+                            @foreach ($associate_industry->slice(0, 2) as $industry)
+                                <div class="col-6 mb-2 pb-0 pe-0">
+                                    <a href="{{$industry->link}}" class="relative-div">
+                                        <img src="{{ asset('images/' . $industry->image) }}" alt="{{ $industry->name }}"
+                                             class="associate_industry_img_1">
+                                        <div class="absolute-div">
+                                            <p>{{ $industry->name }}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-6 mb-2 pe-0">
-                            <div class="relative-div">
-                                <img src="https://edison-bd.com/images/industry/associate/it.png" alt="Small Image 2"
-                                    class="gallery-image">
-                                <div class="absolute-div">
-                                    <p>Business Consultancy</p>
-                                </div>
-                            </div>
-                        </div>
-
-
+                            @endforeach
+                        @endif
+        
                         <!-- One image in the second row -->
-                        <div class="col-12 pe-0">
-                            <div class="relative-div">
-                                <img src="https://edison-bd.com/images/industry/associate/home.png" alt="Small Image 3"
-                                    class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>Home Appliances</p>
-                                </div>
+                        @if ($associate_industry->count() > 2)
+                            <div class="col-12 pe-0">
+                                <a href="{{$associate_industry[2]->title}}" class="relative-div">
+                                    <img src="{{ asset('images/' . $associate_industry[2]->image) }}" alt="{{ $associate_industry[2]->name }}"
+                                         class="associate_industry_img_2">
+                                    <div class="absolute-div">
+                                        <p>{{ $associate_industry[2]->name }}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
+        
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-6 pe-0">
-                            <div class="relative-div">
-                                <img src="https://edison-bd.com/images/industry/associate/properties.png"
-                                    alt="Small Image 2" class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>Property & Real Estate</p>
-                                </div>
+                        @if ($associate_industry->count() > 3)
+                            <div class="col-md-6 pe-0">
+                                <a href="{{$associate_industry[3]->link}}" class="relative-div">
+                                    <img src="{{ asset('images/' . $associate_industry[3]->image) }}" alt="{{ $associate_industry[3]->name }}"
+                                         class="associate_industry_img_3">
+                                    <div class="absolute-div">
+                                        <p>{{ $associate_industry[3]->name }}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="relative-div">
-                                <img src="https://edison-bd.com/images/industry/associate/gadget.png" alt="Small Image 2"
-                                    class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>Gadget & Accessories</p>
-                                </div>
+                        @endif
+        
+                        @if ($associate_industry->count() > 4)
+                            <div class="col-md-6">
+                                <a href="{{$associate_industry[4]->link}}" class="relative-div">
+                                    <img src="{{ asset('images/' . $associate_industry[4]->image) }}" alt="{{ $associate_industry[4]->name }}"
+                                         class="associate_industry_img_4 mb-2">
+                                    <div class="absolute-div">
+                                        <p>{{ $associate_industry[4]->name }}</p>
+                                    </div>
+                                </a>
+                                @if ($associate_industry->count() > 5)
+                                    <a href="{{$associate_industry[5]->link}}" class="relative-div">
+                                        <img src="{{ asset('images/' . $associate_industry[5]->image) }}" alt="{{ $associate_industry[5]->name }}"
+                                             class="associate_industry_img_4">
+                                        <div class="absolute-div">
+                                            <p>{{ $associate_industry[5]->name }}</p>
+                                        </div>
+                                    </a>
+                                @endif
                             </div>
-                            <div class="relative-div mt-2">
-                                <img src="https://edison-bd.com/images/industry/associate/tech.png" alt="Small Image 2"
-                                    class="gallery-image ">
-                                <div class="absolute-div">
-                                    <p>IT Solutions</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-
+        
+        <!-- Additional images if any -->
+        @if ($associate_industry->count() > 4)
+            <div class="d-md-flex d-none flex-wrap gap-1 section-width mt-2 associate_industry_section_flex">
+                @foreach ($associate_industry->slice(4) as $industry)
+                    <a href="{{ $industry->link }}" class="col-md-3 img-div-4 p-0 relative-div associate_industry_section_post">
+                        <img src="{{ asset('images/' . $industry->image) }}" alt="Additional Image" class=" w-100">
+                        <div class="absolute-div">
+                            <p>{{ $industry->name }}</p>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        @endif
 
         {{-- slider for mobile view  --}}
         <div class="d-block d-md-none industries_footprint_mobile_margin">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleFad" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="relative-div">
-                            <img src="https://edison-bd.com/images/industry/associate/vas.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>Value-Added Services</p>
-                            </div>
+                    @foreach ($associate_industry as $index => $industry)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <a href="{{$industry->link}}" class="relative-div">
+                                <img src="{{ asset('images/' . $industry->image) }}" class="d-block w-100"
+                                    alt="{{ $industry->name }}" style="height: 300px; width: 100%; object-fit: cover;">
+                                <div class="absolute-div">
+                                    <p>{{ $industry->name }}</p>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://edison-bd.com/images/industry/associate/it.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>Business Consultancy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://edison-bd.com/images/industry/associate/home.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>Home Appliances</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://edison-bd.com/images/industry/associate/properties.png"
-                                class="d-block w-100" alt="...">
-                            <div class="absolute-div">
-                                <p>Property & Real Estate</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://edison-bd.com/images/industry/associate/gadget.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>Gadget & Accessories</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="relative-div">
-                            <img src="https://edison-bd.com/images/industry/associate/tech.png" class="d-block w-100"
-                                alt="...">
-                            <div class="absolute-div">
-                                <p>IT Solutions</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFad" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFad" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
             </div>
         </div>
     </div>
+
     {{-- end associate industry section  --}}
 
 

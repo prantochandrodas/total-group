@@ -1,29 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\backend\home;
+namespace App\Http\Controllers\backend\news;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
-use App\Models\CoreBusiness;
+use App\Models\Stories;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class CoreBusinessController extends Controller
+class StoriesController extends Controller
 {
     public function index(){
         $application= Application::first();
-        return view('backend.core_business.index',compact('application'));
+        return view('backend.stories.index',compact('application'));
     }
-
     public function getdata(Request $request)
     {
 
         if ($request->ajax()) {
-            $data = CoreBusiness::orderBy('created_at', 'desc')->get();
+            $data = Stories::orderBy('created_at', 'desc')->get();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('core-businesses.edit', $row->id);
-                    $deleteUrl = route('core-businesses.distroy', $row->id);
+                    $editUrl = route('storieses.edit', $row->id);
+                    $deleteUrl = route('storieses.distroy', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -45,12 +44,12 @@ class CoreBusinessController extends Controller
 
     public function create(){
         $application=Application::first();
-        return view('backend.core_business.create',compact('application'));
+        return view('backend.stories.create',compact('application'));
     }
 
     public function store(Request $request){
-       
         $request->validate([
+            'title' =>'required|string|max:255',
             'link'  => 'required|string',
             'image' =>  'required|image|mimes:png,jpg,jpeg,svg|max:2048'
         ]);
@@ -59,36 +58,38 @@ class CoreBusinessController extends Controller
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extension=$file->getClientOriginalExtension();
-            $filename=time() . '_' . rand(1,100) . '_'. $extension;
+            $filename=time() . '_' . rand(1,100) . '.'. $extension;
             $path = "images/";
             $file->move(public_path($path),$filename);
             $imagePath =$filename;
         }
-        CoreBusiness::create([
+        Stories::create([
+            'title'=>$request->title,
             'link' => $request->link,
             'image' => $imagePath
         ]);
-        return redirect()->route('core-businesses')
+        return redirect()->route('storieses')
         ->with('success', 'Data created successfully.');
     }
 
     public function edit($id)
     {
         $application = Application::first();
-        $data = CoreBusiness::find($id);
-        return view('backend.core_business.edit', compact('application', 'data'));
+        $data = Stories::find($id);
+        return view('backend.stories.edit', compact('application', 'data'));
     }
 
     public function update(Request $request, $id)
     {
 
         $request->validate([
+            'title'=> 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'link'  => 'required|string'
         ]);
         // Generate slug
 
-        $data = CoreBusiness::findOrFail($id);
+        $data = Stories::findOrFail($id);
 
 
 
@@ -105,29 +106,26 @@ class CoreBusinessController extends Controller
             $file->move(public_path($path), $filename);
             $data->image = $filename;
         }
+        $data->title = $request->title;
         $data->link = $request->link;
         $data->save();
-        return redirect()->route('core-businesses')
+        return redirect()->route('storieses')
             ->with('success', 'data updated successfully.');
     }
 
-
-    
     public function distroy($id)
     {
         // Find the product by ID
-        $data = CoreBusiness::findOrFail($id);
+        $data = Stories::findOrFail($id);
 
         // Delete associated images from the file system and database
         $imagePath = public_path('images/' . $data->image);
         if (file_exists($imagePath)) {
             unlink($imagePath); // Delete the image file
         }
-
         // Delete the product
         $data->delete();
-
-        return redirect()->route('core-businesses')
+        return redirect()->route('storieses')
             ->with('success', 'data deleted successfully.');
     }
 }

@@ -15,7 +15,7 @@
     @endif
 
 @section('title')
-Core-Industry
+    Stories
 @endsection
 
 
@@ -26,7 +26,7 @@ Core-Industry
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Core-Industry
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Stories
             </h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
@@ -42,7 +42,7 @@ Core-Industry
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Associate-Industry</li>
+                <li class="breadcrumb-item text-muted">Stories</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -55,29 +55,26 @@ Core-Industry
 
 <div class="app-container container-fluid">
     <div style="background-color: #f0f0f0; padding: 20px;">
-        <h2 style="text-align: center;">Edit Core-Industry</h2>
+        <h2 style="text-align: center;">Edit Stories</h2>
     </div>
 
     <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-        <form method="POST" action="{{ route('core-industries.update', $data->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('storieses.update', $data->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-
-            {{-- name field  --}}
+            {{-- title field  --}}
             <div class="form-group">
-                <label for="name" class="mb-2 fs-5">Name:</label>
-                <input type="text" class="form-control mb-2" id="name" name="name"
-                    value="{{ $data->name }}">
-                @error('name')
+                <label for="title" class="mb-2 fs-5">Title:</label>
+                <input type="text" class="form-control mb-2" id="title" name="title"
+                    value="{{ $data->title }}">
+                @error('title')
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
             </div>
-            {{-- end name  --}}
+            {{-- end title  --}}
 
-
-
-             {{-- link field  --}}
-             <div class="form-group">
+            {{-- link field  --}}
+            <div class="form-group">
                 <label for="link" class="mb-2 fs-5">Link:</label>
                 <input type="text" class="form-control mb-2" id="link" name="link"
                     value="{{ $data->link }}">
@@ -96,11 +93,10 @@ Core-Industry
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
                 @if ($data->image)
-                    <img src="{{ asset('images/' . $data->image) }}" height="300" class="mb-2" alt="Current Image">
+                    <img src="{{ asset('images/' . $data->image) }}" height="100" class="mb-2" alt="Current Image">
                 @endif
             </div>
             {{-- end of image field  --}}
-
             <button type="submit" class="btn btn-primary btn-sm">Update</button>
         </form>
     </div>

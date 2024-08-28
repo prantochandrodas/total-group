@@ -33,7 +33,7 @@
     </style>
 
 @section('title')
-Core-Industry
+Core-Business
 @endsection
 
 
@@ -44,7 +44,7 @@ Core-Industry
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Core-Industry
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Core-Business
             </h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
@@ -60,7 +60,7 @@ Core-Industry
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Core-Industry</li>
+                <li class="breadcrumb-item text-muted">Core-Business</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -75,14 +75,13 @@ Core-Industry
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
-        <a href={{ route('core-industries.create') }} class="btn btn-sm btn-primary">Add</a>
+        <a href={{ route('core-businesses.create') }} class="btn btn-sm btn-primary">Add</a>
         <table id="mydata" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>Serial ID</th>
-                    <th>Name</th>
-                    <th class="hidden-field">Short Description</th>
                     <th>Image</th>
+                    <th>Link</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -96,7 +95,7 @@ Core-Industry
         $('#mydata').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('core-industries.getdata') }}',
+            ajax: '{{ route('core-businesses.getdata') }}',
             columns: [{
                     data: null, // Use null to signify that this column does not map directly to any data source
                     name: 'serial_number',
@@ -108,8 +107,11 @@ Core-Industry
                     searchable: false
                 },
                 {
-                    data: 'name',
-                    name: 'name',
+                    data: 'image',
+                    name: 'image',
+                    render:function(data,type,row){
+                        return '<img src="{{asset('images/')}}/'+data+'" height="100" width="100">'
+                    }
                 },
                 {
                     data: 'link',
@@ -122,15 +124,6 @@ Core-Industry
                         }
                     },
                     className: 'hidden-field'
-                },
-                {
-                    data: 'first_image',
-                    name: 'first_image',
-                    render: function(data, type, row) {
-                        return '<img src="' + data + '" height="100"/>'; // Render image
-                    },
-                    orderable: false,
-                    searchable: false
                 },
                 {
                     data: 'action',

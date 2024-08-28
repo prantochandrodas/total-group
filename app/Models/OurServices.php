@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CoreBusiness extends Model
+class OurServices extends Model
 {
-    protected $fillable=['image','link'];
+    protected $fillable=['image'];
 }

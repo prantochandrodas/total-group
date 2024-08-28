@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HomeBannerSeeder::class);
         $this->call(HomeAboutSeeder::class);
         $this->call(ApplicationSeeder::class);
+        $this->call(OurValuesTableSeeder::class);
+        $this->call(HeadlinesSeeder::class);
     }
 }

@@ -33,7 +33,7 @@
     </style>
 
 @section('title')
-Associate-Industry
+Our-services
 @endsection
 
 
@@ -44,7 +44,7 @@ Associate-Industry
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
-            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Associate-Industry
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Our-services
             </h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
@@ -60,7 +60,7 @@ Associate-Industry
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Associate-Industry</li>
+                <li class="breadcrumb-item text-muted">Our-services</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -75,13 +75,11 @@ Associate-Industry
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
-        <a href={{ route('associate-industries.create') }} class="btn btn-sm btn-primary">Add</a>
+        <a href={{ route('our-serviceses.create') }} class="btn btn-sm btn-primary">Add</a>
         <table id="mydata" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>Serial ID</th>
-                    <th>Name</th>
-                    <th class="hidden-field">Link</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>
@@ -96,7 +94,7 @@ Associate-Industry
         $('#mydata').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('associate-industries.getdata') }}',
+            ajax: '{{ route('our-serviceses.getdata') }}',
             columns: [{
                     data: null, // Use null to signify that this column does not map directly to any data source
                     name: 'serial_number',
@@ -108,29 +106,11 @@ Associate-Industry
                     searchable: false
                 },
                 {
-                    data: 'name',
-                    name: 'name',
-                },
-                {
-                    data: 'link',
-                    name: 'link',
-                    render: function(data, type, row) {
-                        if (data && data !== null) {
-                            return '<a href="' + data + '">' + data + '</a>';
-                        } else {
-                            return ''; // Return an empty string if no data
-                        }
-                    },
-                    className: 'hidden-field'
-                },
-                {
-                    data: 'first_image',
-                    name: 'first_image',
-                    render: function(data, type, row) {
-                        return '<img src="' + data + '" height="100"/>'; // Render image
-                    },
-                    orderable: false,
-                    searchable: false
+                    data: 'image',
+                    name: 'image',
+                    render:function(data,type,row){
+                        return '<img src="{{asset('images/')}}/'+data+'" height="100" width="100">'
+                    }
                 },
                 {
                     data: 'action',

@@ -302,7 +302,7 @@
                                     d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
                                 </path>
                             </svg>
-                            <p> {{$item->milestones}}</p>
+                            <p> {{ $item->milestones }}</p>
                         </li>
                     @endforeach
                 </ul>
@@ -310,9 +310,9 @@
             <div class="milestones_image">
                 <div class="row">
                     @foreach ($milestonesImages as $item)
-                    <div class="col-6 mt-4">
-                        <img class="img-fluid" src="{{asset('images/'.$item->image)}}" alt="">
-                    </div>
+                        <div class="col-6 mt-4">
+                            <img class="img-fluid" src="{{ asset('images/' . $item->image) }}" alt="">
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -328,55 +328,39 @@
         <p class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Conglomerate Snapshot</p>
         <p class="fs-5 text-center">Core Businesses</p>
 
-        <div class="core_businessess_img d-none d-md-flex">
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
+        <div class="core_businessess_img d-none d-md-flex flex-wrap">
+            @foreach ($core_business as $item)
+                <a href="{{ $item->link }}">
+                    <img src="{{ asset('images/' . $item->image) }}" height="100" width="100" alt="">
+                </a>
+            @endforeach
         </div>
         {{-- slider for mobile view  --}}
         <div class="d-block d-md-none industries_footprint_mobile_margin">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div id="coreBusinessSlider" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="core_businessess_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
+                    @foreach ($core_business as $index => $item)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <a href="{{ $item->link }}" class="relative-div">
+                                <img src="{{ asset('images/' . $item->image) }}" class="d-block mx-auto"
+                                    alt="{{ $item->name }}" style="height: 150px; width: 220px;">
+                            </a>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="core_businessess_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="core_businessess_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="core_businessess_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
+                    @endforeach
+                    <button class="carousel-control-prev" type="button" data-bs-target="#coreBusinessSlider"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#coreBusinessSlider"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
+
     </div>
     {{-- end Core Businesses section  --}}
 
@@ -385,23 +369,35 @@
     {{-- Brand section  --}}
     <div class="brand">
         <p class="fs-5 text-center">Our Brand</p>
-        <div class="brand_img d-none d-md-flex">
-            <a href=""><img src="{{ asset('images/untitled1.png') }}" alt=""></a>
+        <div class="brand_img d-none d-md-flex flex-wrap">
+            @foreach ($our_brand as $item)
+                <a href="{{ $item->link }}">
+                    <img src="{{ asset('images/' . $item->image) }}" alt="">
+                </a>
+            @endforeach
         </div>
         {{-- slider for mobile view  --}}
         <div class="d-block d-md-none industries_footprint_mobile_margin">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div id="ourBrandCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="brand_img">
-                            <a href=""><img src="{{ asset('images/untitled1.png') }}" alt=""></a>
+                    @foreach ($our_brand as $index => $item)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <a href="{{ $item->link }}" class="relative-div">
+                                <img src="{{ asset('images/' . $item->image) }}" class="d-block mx-auto"
+                                    alt="{{ $item->name }}" style="height: 150px; width: 220px;">
+                            </a>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="brand_img">
-                            <a href=""><img src="{{ asset('images/untitled1.png') }}" alt=""></a>
-                        </div>
-                    </div>
+                    @endforeach
+                    <button class="carousel-control-prev" type="button" data-bs-target="#ourBrandCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#ourBrandCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -416,64 +412,35 @@
     <div class="associate_businesses">
         <p class="fs-5 text-center">Associate Businesses</p>
         <div class="associate_businesses_img d-none d-md-flex">
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
-            <a href=""><img
-                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                    alt=""></a>
+            @foreach ($associat_business as $item)
+                <a href="{{ $item->link }}">
+                    <img src="{{ asset('images/' . $item->image) }}" alt="">
+                </a>
+            @endforeach
         </div>
 
         {{-- slider for mobile view  --}}
         <div class="d-block d-md-none industries_footprint_mobile_margin">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="associate_businesses_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
+                    @foreach ($associat_business as $index => $item)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            <a href="{{ $item->link }}" class="relative-div">
+                                <img src="{{ asset('images/' . $item->image) }}" class="d-block mx-auto"
+                                    alt="{{ $item->name }}" style="height: 150px; width: 220px;">
+                            </a>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="associate_businesses_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="associate_businesses_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="associate_businesses_img">
-                            <a href=""><img
-                                    src="{{ asset('images/abstract-geometric-logo-or-infinity-line-logo-for-your-company-free-vector.jpg') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
+                    @endforeach
+                    <button class="carousel-control-prev" type="button" data-bs-target="#coreBusinessSlider"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#coreBusinessSlider"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -485,51 +452,37 @@
     {{-- Our Values section  --}}
     <div class="our_values">
         <div class="our_value_width">
-            <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Our Values</h1>
-            <p class="fs-5 text-center">At our core, we embody fundamental beliefs that drive excellence and integrity</p>
+            <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1 text-center">{{ $our_value->title }}</h1>
+            <p class="fs-5 text-center">{{ $our_value->short_description }}</p>
 
-            <div class="our_values_main d-none d-md-flex">
-                <img src="https://www.edison-bd.com/images/values/1.svg" alt="">
-                <img src="https://www.edison-bd.com/images/values/2.svg" alt="">
-                <img src="https://www.edison-bd.com/images/values/3.svg" alt="">
-                <img src="https://www.edison-bd.com/images/values/4.svg" alt="">
-                <img src="https://www.edison-bd.com/images/values/5.svg" alt="">
+            <div class="our_values_main d-none d-md-flex flex-wrap">
+                @foreach ($our_services as $item)
+                    <img src="{{ asset('images/' . $item->image) }}" alt="">
+                @endforeach
             </div>
 
             {{-- slider for mobile view  --}}
             <div class="d-block d-md-none industries_footprint_mobile_margin">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div id="ourValueSlider" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="our_values_main">
-                                <a href=""><img src="https://www.edison-bd.com/images/values/1.svg"
-                                        alt=""></a>
+                        @foreach ($our_services as $index => $value)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <div class="our_values_main">
+                                    <a href="{{ $value->link }}"><img src="{{ asset('images/' . $value->image) }}"
+                                            alt=""></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="our_values_main">
-                                <a href=""><img src="https://www.edison-bd.com/images/values/2.svg"
-                                        alt=""></a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="our_values_main">
-                                <a href=""><img src="https://www.edison-bd.com/images/values/3.svg"
-                                        alt=""></a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="our_values_main">
-                                <a href=""><img src="https://www.edison-bd.com/images/values/4.svg"
-                                        alt=""></a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="our_values_main">
-                                <a href=""><img src="https://www.edison-bd.com/images/values/5.svg"
-                                        alt=""></a>
-                            </div>
-                        </div>
+                        @endforeach
+                        <button class="carousel-control-prev" type="button" data-bs-target="#ourValueSlider"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#ourValueSlider"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -542,39 +495,19 @@
     {{-- Headlines  section  --}}
     <div class="headlines">
         <div class="headlines_width">
-            <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1">We Have Made Headlines !</h1>
-            <p>Exploring the Achievements Across Our Group Entities</p>
+            <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1">{{ $headline->title }}</h1>
+            <p>{{ $headline->short_description }}</p>
             <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-3 flex-md-wrap">
-                <a class="headlines_post" href="#">
-                    <img class="rounded-4"
-                        src="https://cms.webmanza.com/uploads/Snipaste_2024_03_10_14_41_34_45900df06b.png" alt="">
-                    <p>Symphony to launch its latest smartphone Z70</p>
-                </a>
-                <a class="headlines_post" href="#">
-                    <img class="rounded-4"
-                        src="https://api.admin.webmanza.com/cc1f39ea-d2a1-49bf-bd77-738a3f6c25db/uploads/268_1708323635585-13-crorejpg.jpeg"
-                        alt="">
-                    <p>130 Million Users for Symphony Mobile</p>
-                </a>
-                <a class="headlines_post" href="#">
-                    <img class="rounded-4"
-                        src="https://api.admin.webmanza.com/cc1f39ea-d2a1-49bf-bd77-738a3f6c25db/uploads/268_1710057519611-snipaste2024-03-1013-58-21png.png"
-                        alt="">
-                    <p> A Grateful Acknowledgment: MD Sir's Impact on Women's Cricket</p>
-                </a>
-                <a class="headlines_post" href="#">
-                    <img class="rounded-4"
-                        src="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2023/05/02/motorola_edison.jpg"
-                        alt="">
-                    <p>Edison Group becomes Motorola Mobile's new national distributor</p>
-                </a>
-                <a class="headlines_post" href="#">
-                    <img class="rounded-4" src="https://cms.webmanza.com/uploads/iso_image_44704ba8da.png"
-                        alt="">
-                    <p>Edison Industries Ltd. Is Now ISO Certified</p>
-                </a>
+                @foreach ($stories as $item)
+                    <a class="headlines_post" href="{{$item->link}}">
+                        <img class="rounded-4"
+                            src="{{asset('images/'. $item->image)}}"
+                            alt="">
+                        <p>{{$item->title}}</p>
+                    </a>
+                @endforeach
             </div>
-            <a href="{{ route('news.index') }}" class="d-flex justify-content-center"><button
+            <a href="{{ route('news.index') }}" class="d-flex justify-content-center" style="text-decoration:none; border:none"><button
                     class="btn btn-primary">View
                     More</button></a>
         </div>
@@ -584,29 +517,26 @@
 
     {{-- start contact section  --}}
     <div class="contact" id="connect">
-        <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1 text-center">Questions? <br>
-            Let's connect</h1>
+        <h1 class="fs-1 fw-bold fs-sm-3 fs-md-1 text-center">{{$contact->title}}</h1>
 
         <div class="contact_main d-flex flex-column flex-md-row align-items-center">
             <div class="me-4">
                 <div class="contact_location">
-                    <img src="https://www.edison-bd.com/images/contact-map.svg" alt="">
-                    <p>Our Head Office</p>
-                    <p>Rangs Babylonia, Level 6-9, 246, Bir Uttam Mir
-                        Shawkat Sarak, Tejgaon I/A, Dhaka-1208
-                    </p>
+                    <img src="{{asset('images/'. $contact->location_icon)}}" alt="">
+                    <p>{{$contact->location_title}}</p>
+                    <p>{{$contact->location}}</p>
                 </div>
                 <div class="contact_number">
-                    <img src="https://www.edison-bd.com/images/contact-phone.svg" alt="">
-                    <p>Let's Speak</p>
-                    <a href="tel:(+880) 2 8878057">
-                        <p>(+880) 2 8878057</p>
+                    <img src="{{asset('images/'.$contact->contact_icon)}}" alt="">
+                    <p>{{$contact->contact_title}}</p>
+                    <a href="{{$contact->contact_number}}">
+                        <p>{{$contact->contact_number}}</p>
                     </a>
                 </div>
             </div>
             <div class="map">
-                <a href="https://maps.app.goo.gl/7LVpTXAhcNS59n4MA" class="css-1wr59ft"><img alt="location"
-                        src="https://www.edison-bd.com/images/map.png" class="chakra-image css-2qcby8"></a>
+                <a href="{{$contact->map_link}}" class="css-1wr59ft"><img alt="location"
+                        src="{{asset('images/'.$contact->map_image)}}" class="chakra-image css-2qcby8"></a>
             </div>
         </div>
 

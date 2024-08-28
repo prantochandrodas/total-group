@@ -324,7 +324,10 @@
     align-items: center;
     flex-wrap: wrap;
 }
-
+.our_values_main img{
+    width: 220px;
+    height: 220px;
+}
 .our_value_width {
     width: 90%;
     margin: 0px auto;

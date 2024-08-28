@@ -4,26 +4,25 @@ namespace App\Http\Controllers\backend\home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
-use App\Models\CoreBusiness;
+use App\Models\OurBrand;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-class CoreBusinessController extends Controller
+class OurBrandController extends Controller
 {
     public function index(){
         $application= Application::first();
-        return view('backend.core_business.index',compact('application'));
+        return view('backend.our_brand.index',compact('application'));
     }
-
     public function getdata(Request $request)
     {
 
         if ($request->ajax()) {
-            $data = CoreBusiness::orderBy('created_at', 'desc')->get();
+            $data = OurBrand::orderBy('created_at', 'desc')->get();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('core-businesses.edit', $row->id);
-                    $deleteUrl = route('core-businesses.distroy', $row->id);
+                    $editUrl = route('our-brands.edit', $row->id);
+                    $deleteUrl = route('our-brands.distroy', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -45,9 +44,8 @@ class CoreBusinessController extends Controller
 
     public function create(){
         $application=Application::first();
-        return view('backend.core_business.create',compact('application'));
+        return view('backend.our_brand.create',compact('application'));
     }
-
     public function store(Request $request){
        
         $request->validate([
@@ -64,19 +62,19 @@ class CoreBusinessController extends Controller
             $file->move(public_path($path),$filename);
             $imagePath =$filename;
         }
-        CoreBusiness::create([
+        OurBrand::create([
             'link' => $request->link,
             'image' => $imagePath
         ]);
-        return redirect()->route('core-businesses')
+        return redirect()->route('our-brands')
         ->with('success', 'Data created successfully.');
     }
 
     public function edit($id)
     {
         $application = Application::first();
-        $data = CoreBusiness::find($id);
-        return view('backend.core_business.edit', compact('application', 'data'));
+        $data = OurBrand::find($id);
+        return view('backend.our_brand.edit', compact('application', 'data'));
     }
 
     public function update(Request $request, $id)
@@ -88,7 +86,7 @@ class CoreBusinessController extends Controller
         ]);
         // Generate slug
 
-        $data = CoreBusiness::findOrFail($id);
+        $data = OurBrand::findOrFail($id);
 
 
 
@@ -107,16 +105,14 @@ class CoreBusinessController extends Controller
         }
         $data->link = $request->link;
         $data->save();
-        return redirect()->route('core-businesses')
+        return redirect()->route('our-brands')
             ->with('success', 'data updated successfully.');
     }
 
-
-    
     public function distroy($id)
     {
         // Find the product by ID
-        $data = CoreBusiness::findOrFail($id);
+        $data = OurBrand::findOrFail($id);
 
         // Delete associated images from the file system and database
         $imagePath = public_path('images/' . $data->image);
@@ -127,7 +123,8 @@ class CoreBusinessController extends Controller
         // Delete the product
         $data->delete();
 
-        return redirect()->route('core-businesses')
+        return redirect()->route('our-brands')
             ->with('success', 'data deleted successfully.');
     }
+
 }

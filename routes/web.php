@@ -2,14 +2,21 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\home\AssociateBusinessController;
 use App\Http\Controllers\backend\home\AssociateIndustry;
 use App\Http\Controllers\backend\home\AssociateIndustryController;
+use App\Http\Controllers\backend\home\ContactController;
 use App\Http\Controllers\backend\home\CoreBusinessController;
 use App\Http\Controllers\backend\home\CoreIndustryController;
+use App\Http\Controllers\backend\home\HeadlinesController;
 use App\Http\Controllers\backend\Home\HomeAboutController;
 use App\Http\Controllers\backend\Home\HomeBannerController;
 use App\Http\Controllers\backend\home\MilestonesController;
 use App\Http\Controllers\backend\home\MilestonesImagesController;
+use App\Http\Controllers\backend\home\OurBrandController;
+use App\Http\Controllers\backend\home\OurServicesController;
+use App\Http\Controllers\backend\home\OurVluesController;
+use App\Http\Controllers\backend\news\StoriesController;
 use App\Http\Controllers\backend\product\ProductController;
 use App\Http\Controllers\frontend\AboutusController;
 use App\Http\Controllers\frontend\CareerController;
@@ -19,6 +26,8 @@ use App\Http\Controllers\frontend\NewsController;
 use App\Http\Controllers\frontend\ProductDetailsController;
 use App\Http\Controllers\user\LoginController;
 use App\Http\Controllers\user\LogoutController;
+use App\Models\AssociateBusiness;
+use App\Models\Stories;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -131,4 +140,61 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/core-business/edit/{id}', [CoreBusinessController::class, 'edit'])->name('core-businesses.edit');
     Route::put('/core-business/update/{id}', [CoreBusinessController::class, 'update'])->name('core-businesses.update');
     Route::delete('/core-business/distory/{id}', [CoreBusinessController::class, 'distroy'])->name('core-businesses.distroy');
+    // end core business 
+
+
+    //start our-brand 
+    Route::get('/our-brand', [OurBrandController::class, 'index'])->name('our-brands');
+    Route::get('/our-brand/getdata', [OurBrandController::class, 'getdata'])->name('our-brands.getdata');
+    Route::get('/our-brand/create',[OurBrandController::class,'create'])->name('our-brands.create');
+    Route::post('/our-brand/store', [OurBrandController::class, 'store'])->name('our-brands.store');
+    Route::get('/our-brand/edit/{id}', [OurBrandController::class, 'edit'])->name('our-brands.edit');
+    Route::put('/our-brand/update/{id}', [OurBrandController::class, 'update'])->name('our-brands.update');
+    Route::delete('/our-brand/distory/{id}', [OurBrandController::class, 'distroy'])->name('our-brands.distroy');
+    // end our-brand
+
+     //start Associate Business
+     Route::get('/associate_business', [AssociateBusinessController::class, 'index'])->name('associate_businesses');
+     Route::get('/associate_business/getdata', [AssociateBusinessController::class, 'getdata'])->name('associate_businesses.getdata');
+     Route::get('/associate_business/create',[AssociateBusinessController::class,'create'])->name('associate_businesses.create');
+     Route::post('/associate_business/store', [AssociateBusinessController::class, 'store'])->name('associate_businesses.store');
+     Route::get('/associate_business/edit/{id}', [AssociateBusinessController::class, 'edit'])->name('associate_businesses.edit');
+     Route::put('/associate_business/update/{id}', [AssociateBusinessController::class, 'update'])->name('associate_businesses.update');
+     Route::delete('/associate_business/distory/{id}', [AssociateBusinessController::class, 'distroy'])->name('associate_businesses.distroy');
+     // end our-brand
+
+    // start our-values
+    Route::get('/our-values',[OurVluesController::class,'index'])->name('our-valueses');
+    Route::put('/our-values/update/{id}', [OurVluesController::class, 'update'])->name('our-valueses.update');
+    // end our-values
+
+    // start our-services 
+    Route::get('/our-services', [OurServicesController::class, 'index'])->name('our-serviceses');
+    Route::get('/our-services/getdata', [OurServicesController::class, 'getdata'])->name('our-serviceses.getdata');
+    Route::get('/our-services/create',[OurServicesController::class,'create'])->name('our-serviceses.create');
+    Route::post('/our-services/store', [OurServicesController::class, 'store'])->name('our-serviceses.store');
+    Route::get('/our-services/edit/{id}', [OurServicesController::class, 'edit'])->name('our-serviceses.edit');
+    Route::put('/our-services/update/{id}', [OurServicesController::class, 'update'])->name('our-serviceses.update');
+    Route::delete('/our-services/distory/{id}', [OurServicesController::class, 'distroy'])->name('our-serviceses.distroy');
+    // end our-services 
+
+    // start headline
+    Route::get('/headline',[HeadlinesController::class,'index'])->name('headlines');
+    Route::put('/headline/update/{id}', [HeadlinesController::class, 'update'])->name('headlines.update');
+    // end headline
+
+    // start stories
+    Route::get('/stories', [StoriesController::class, 'index'])->name('storieses');
+    Route::get('/stories/getdata', [StoriesController::class, 'getdata'])->name('storieses.getdata');
+    Route::get('/stories/create',[StoriesController::class,'create'])->name('storieses.create');
+    Route::post('/stories/store', [StoriesController::class, 'store'])->name('storieses.store');
+    Route::get('/stories/edit/{id}', [StoriesController::class, 'edit'])->name('storieses.edit');
+    Route::put('/stories/update/{id}', [StoriesController::class, 'update'])->name('storieses.update');
+    Route::delete('/stories/distory/{id}', [StoriesController::class, 'distroy'])->name('storieses.distroy');
+    // end stories
+
+    // start contact
+    Route::get('/contact',[ContactController::class,'index'])->name('contacts');
+    Route::put('/contact/update/{id}', [ContactController::class, 'update'])->name('contacts.update');
+    // end contact
 });

@@ -81,7 +81,7 @@ Core-Industry
                 <tr>
                     <th>Serial ID</th>
                     <th>Name</th>
-                    <th class="hidden-field">Short Description</th>
+                    <th class="hidden-field">Link</th>
                     <th>Image</th>
                     <th>Action</th>
                 </tr>

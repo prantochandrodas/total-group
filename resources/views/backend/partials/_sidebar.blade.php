@@ -7,8 +7,10 @@
         <!--begin::Logo image-->
 
         <a href="{{ route('backends') }}">
-            <img alt="Logo" src="{{ asset('images/'.$application->logo) }}" class="h-55px app-sidebar-logo-default" />
-            <img alt="Logo" src="{{ asset('images/'.$application->logo) }}" class="h-20px app-sidebar-logo-minimize" />
+            <img alt="Logo" src="{{ asset('images/' . $application->logo) }}"
+                class="h-55px app-sidebar-logo-default" />
+            <img alt="Logo" src="{{ asset('images/' . $application->logo) }}"
+                class="h-20px app-sidebar-logo-minimize" />
         </a>
         <!--end::Logo image-->
         <!--begin::Sidebar toggle-->
@@ -43,6 +45,26 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                 data-kt-menu="true" data-kt-menu-expand="false">
                 <!--begin:Menu item-->
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{ request()->is('dashboard') ? 'active' : '' }}"
+                        href="{{ route('dashboards') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-element-11 fs-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Dashboards</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+
+                
+                <!--begin:Menu item-->
                 {{-- <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">
@@ -63,7 +85,8 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/">
+                            <a class="menu-link {{ request()->is('/dashboard') ? 'active' : '' }}"
+                                href="{{ route('dashboards') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -111,8 +134,8 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->is('backend') ? 'active' : '' }}"
-                                href="{{ route('backends') }}">
+                            <a class="menu-link {{ request()->is('home-banner') ? 'active' : '' }}"
+                                href="{{ route('home-banners') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -129,7 +152,8 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->is('home-about') ? 'active' : '' }}" href="{{route('home-abouts')}}">
+                            <a class="menu-link {{ request()->is('home-about') ? 'active' : '' }}"
+                                href="{{ route('home-abouts') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -142,13 +166,13 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                     <!--end:Menu sub-->
 
                     <!--begin:Menu sub-->
-                    
+
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{ request()->is('/product') ? 'active' : '' }}"
-                                href="{{route('products')}}">
+                                href="{{ route('products') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -166,7 +190,7 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{ request()->is('core-industry') ? 'active' : '' }}"
-                                href="{{route('core-industries')}}">
+                                href="{{ route('core-industries') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -178,13 +202,13 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                     </div>
                     <!--end:Menu sub-->
 
-                     <!--begin:Menu sub-->
-                     <div class="menu-sub menu-sub-accordion">
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{ request()->is('associate-industry') ? 'active' : '' }}"
-                                href="{{route('associate-industries')}}">
+                                href="{{ route('associate-industries') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -197,13 +221,13 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                     <!--end:Menu sub-->
 
 
-                     <!--begin:Menu sub-->
+                    <!--begin:Menu sub-->
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
                             <a class="menu-link {{ request()->is('milestone') ? 'active' : '' }}"
-                                href="{{route('milestones')}}">
+                                href="{{ route('milestones') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

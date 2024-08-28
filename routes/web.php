@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\home\AssociateIndustry;
 use App\Http\Controllers\backend\home\AssociateIndustryController;
 use App\Http\Controllers\backend\home\CoreBusinessController;
@@ -51,13 +52,21 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
+    // start Dashboards 
+    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboards');
+    Route::get('/backend',[DashboardController::class,'index'])->name('backends');
+
+
     // start application 
     Route::get('/application',[ApplicationController::class,'index'])->name('applications');
     Route::put('/application/{id}', [ApplicationController::class, 'update'])->name('applications.update');
     // end application
 
+    
+    
+
     // start home banner 
-    Route::get('/backend',[HomeBannerController::class,'index'])->name('backends');
+    Route::get('/home-banner',[HomeBannerController::class,'index'])->name('home-banners');
     Route::put('/home-banner/update/{id}', [HomeBannerController::class, 'update'])->name('home-banners.update');
     // end home banner 
 

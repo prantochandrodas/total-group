@@ -48,7 +48,7 @@ class HomeBannerController extends Controller
         // Save the updated home banner record
         $banner->save();
 
-        return redirect()->route('backends', $banner->id)
+        return redirect()->route('home-banners', $banner->id)
                          ->with('success', 'Banner updated successfully');
     }
 }

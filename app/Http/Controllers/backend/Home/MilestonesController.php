@@ -168,23 +168,16 @@ class MilestonesController extends Controller
     }
     
 
-    // public function distroy($id)
-    // {
-    //     // Find the product by ID
-    //     $data = AssociateIndustry::findOrFail($id);
+    public function distroy($id)
+    {
+        // Find the product by ID
+        $data = Milestones::findOrFail($id);
+        // Delete the product
+        $data->delete();
 
-    //     // Delete associated images from the file system and database
-    //     $imagePath = public_path('images/' . $data->image);
-    //     if (file_exists($imagePath)) {
-    //         unlink($imagePath); // Delete the image file
-    //     }
-
-    //     // Delete the product
-    //     $data->delete();
-
-    //     return redirect()->route('associate-industries')
-    //         ->with('success', 'data deleted successfully.');
-    // }
+        return redirect()->route('milestones')
+            ->with('success', 'data deleted successfully.');
+    }
 
     public function deleteImage($id)
     {

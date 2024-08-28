@@ -8,6 +8,8 @@ use App\Models\AssociateIndustry;
 use App\Models\CoreIndustry;
 use App\Models\HomeAbout;
 use App\Models\HomeBanner;
+use App\Models\Milestones;
+use App\Models\MilestonesImages;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -20,6 +22,8 @@ class HomeController extends Controller
         $application=Application::first();
         $banner=HomeBanner::first();
         $about=HomeAbout::first();
-        return view('frontend.home.index',compact('products','banner','about','application','core_industry','associate_industry'));
+        $milestones=Milestones::all();
+        $milestonesImages=MilestonesImages::all();
+        return view('frontend.home.index',compact('milestones','milestonesImages','products','banner','about','application','core_industry','associate_industry'));
     }
 }

@@ -129,8 +129,9 @@
                 <div class="carousel-inner">
                     @foreach ($core_industry as $index => $industry)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                            <a href="{{$industry->link}}" class="relative-div">
-                                <img style="height: 300px; width: 100%; object-fit: cover;" src="{{ asset('images/' . $industry->image) }}" class="d-block w-100"
+                            <a href="{{ $industry->link }}" class="relative-div">
+                                <img style="height: 300px; width: 100%; object-fit: cover;"
+                                    src="{{ asset('images/' . $industry->image) }}" class="d-block w-100"
                                     alt="{{ $industry->name }}">
                                 <div class="absolute-div">
                                     <p>{{ $industry->name }}</p>
@@ -139,14 +140,16 @@
                         </div>
                     @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                  </button>
+                </button>
             </div>
         </div>
     </div>
@@ -168,9 +171,9 @@
                         @if ($associate_industry->count() > 0)
                             @foreach ($associate_industry->slice(0, 2) as $industry)
                                 <div class="col-6 mb-2 pb-0 pe-0">
-                                    <a href="{{$industry->link}}" class="relative-div">
+                                    <a href="{{ $industry->link }}" class="relative-div">
                                         <img src="{{ asset('images/' . $industry->image) }}" alt="{{ $industry->name }}"
-                                             class="associate_industry_img_1">
+                                            class="associate_industry_img_1">
                                         <div class="absolute-div">
                                             <p>{{ $industry->name }}</p>
                                         </div>
@@ -178,13 +181,13 @@
                                 </div>
                             @endforeach
                         @endif
-        
+
                         <!-- One image in the second row -->
                         @if ($associate_industry->count() > 2)
                             <div class="col-12 pe-0">
-                                <a href="{{$associate_industry[2]->title}}" class="relative-div">
-                                    <img src="{{ asset('images/' . $associate_industry[2]->image) }}" alt="{{ $associate_industry[2]->name }}"
-                                         class="associate_industry_img_2">
+                                <a href="{{ $associate_industry[2]->title }}" class="relative-div">
+                                    <img src="{{ asset('images/' . $associate_industry[2]->image) }}"
+                                        alt="{{ $associate_industry[2]->name }}" class="associate_industry_img_2">
                                     <div class="absolute-div">
                                         <p>{{ $associate_industry[2]->name }}</p>
                                     </div>
@@ -193,34 +196,34 @@
                         @endif
                     </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="row">
                         @if ($associate_industry->count() > 3)
                             <div class="col-md-6 pe-0">
-                                <a href="{{$associate_industry[3]->link}}" class="relative-div">
-                                    <img src="{{ asset('images/' . $associate_industry[3]->image) }}" alt="{{ $associate_industry[3]->name }}"
-                                         class="associate_industry_img_3">
+                                <a href="{{ $associate_industry[3]->link }}" class="relative-div">
+                                    <img src="{{ asset('images/' . $associate_industry[3]->image) }}"
+                                        alt="{{ $associate_industry[3]->name }}" class="associate_industry_img_3">
                                     <div class="absolute-div">
                                         <p>{{ $associate_industry[3]->name }}</p>
                                     </div>
                                 </a>
                             </div>
                         @endif
-        
+
                         @if ($associate_industry->count() > 4)
                             <div class="col-md-6">
-                                <a href="{{$associate_industry[4]->link}}" class="relative-div">
-                                    <img src="{{ asset('images/' . $associate_industry[4]->image) }}" alt="{{ $associate_industry[4]->name }}"
-                                         class="associate_industry_img_4 mb-2">
+                                <a href="{{ $associate_industry[4]->link }}" class="relative-div">
+                                    <img src="{{ asset('images/' . $associate_industry[4]->image) }}"
+                                        alt="{{ $associate_industry[4]->name }}" class="associate_industry_img_4 mb-2">
                                     <div class="absolute-div">
                                         <p>{{ $associate_industry[4]->name }}</p>
                                     </div>
                                 </a>
                                 @if ($associate_industry->count() > 5)
-                                    <a href="{{$associate_industry[5]->link}}" class="relative-div">
-                                        <img src="{{ asset('images/' . $associate_industry[5]->image) }}" alt="{{ $associate_industry[5]->name }}"
-                                             class="associate_industry_img_4">
+                                    <a href="{{ $associate_industry[5]->link }}" class="relative-div">
+                                        <img src="{{ asset('images/' . $associate_industry[5]->image) }}"
+                                            alt="{{ $associate_industry[5]->name }}" class="associate_industry_img_4">
                                         <div class="absolute-div">
                                             <p>{{ $associate_industry[5]->name }}</p>
                                         </div>
@@ -232,12 +235,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Additional images if any -->
         @if ($associate_industry->count() > 4)
             <div class="d-md-flex d-none flex-wrap gap-1 section-width mt-2 associate_industry_section_flex">
                 @foreach ($associate_industry->slice(4) as $industry)
-                    <a href="{{ $industry->link }}" class="col-md-3 img-div-4 p-0 relative-div associate_industry_section_post">
+                    <a href="{{ $industry->link }}"
+                        class="col-md-3 img-div-4 p-0 relative-div associate_industry_section_post">
                         <img src="{{ asset('images/' . $industry->image) }}" alt="Additional Image" class=" w-100">
                         <div class="absolute-div">
                             <p>{{ $industry->name }}</p>
@@ -253,7 +257,7 @@
                 <div class="carousel-inner">
                     @foreach ($associate_industry as $index => $industry)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                            <a href="{{$industry->link}}" class="relative-div">
+                            <a href="{{ $industry->link }}" class="relative-div">
                                 <img src="{{ asset('images/' . $industry->image) }}" class="d-block w-100"
                                     alt="{{ $industry->name }}" style="height: 300px; width: 100%; object-fit: cover;">
                                 <div class="absolute-div">
@@ -263,14 +267,16 @@
                         </div>
                     @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFad" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFad"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFad" data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFad"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                  </button>
+                </button>
             </div>
         </div>
     </div>
@@ -287,83 +293,27 @@
             <div class="milestones">
                 <h2>Milestones Unfolded</h2>
                 <ul>
-                    <li>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-                            color="#005fac" style="color:#005fac" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
-                            </path>
-                        </svg>
-                        <p> Largest Mobile factory (approx. 180,000 sft) in Bangladesh</p>
-                    </li>
-                    <li>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-                            color="#005fac" style="color:#005fac" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
-                            </path>
-                        </svg>
-                        <p>Symphony Mobile HS brand achieved the BEST brand award in 2015, 2016, and 2017 in Bangladesh.</p>
-
-                    </li>
-                    <li>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-                            color="#005fac" style="color:#005fac" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
-                            </path>
-                        </svg>
-                        <p> First Bangladeshi local brand to export Mobile</p>
-                    </li>
-                    <li>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-                            color="#005fac" style="color:#005fac" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
-                            </path>
-                        </svg>
-                        <p>Awarded Green Factory for Edison Footwear in 2021</p>
-                    </li>
-                    <li>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-                            color="#005fac" style="color:#005fac" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
-                            </path>
-                        </svg>
-                        <p> Highest Tax Payer Award 2022</p>
-                    </li>
-                    <li>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
-                            color="#005fac" style="color:#005fac" height="1em" width="1em"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
-                            </path>
-                        </svg>
-                        <p>65 offices Nationwide, 125 Primary Distribution hubs lorem50</p>
-                    </li>
+                    @foreach ($milestones as $item)
+                        <li>
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
+                                color="#005fac" style="color:#005fac" height="1em" width="1em"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg>
+                            <p> {{$item->milestones}}</p>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="milestones_image">
                 <div class="row">
+                    @foreach ($milestonesImages as $item)
                     <div class="col-6 mt-4">
-                        <img class="img-fluid" src="https://edison-bd.com/images/milestone/1.png" alt="">
+                        <img class="img-fluid" src="{{asset('images/'.$item->image)}}" alt="">
                     </div>
-                    <div class="col-6 mt-4">
-                        <img class="img-fluid" src="https://edison-bd.com/images/milestone/2.png" alt="">
-                    </div>
-                    <div class="col-6 mt-4">
-                        <img class="img-fluid" src="https://edison-bd.com/images/milestone/3.png" alt="">
-                    </div>
-                    <div class="col-6 mt-4">
-                        <img class="img-fluid" src="https://edison-bd.com/images/milestone/4.png" alt="">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

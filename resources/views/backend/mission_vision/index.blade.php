@@ -26,7 +26,7 @@
         @endif
 
     @section('title')
-    Home-About
+    Mission-Vision
     @endsection
 
     <!--begin::Toolbar-->
@@ -37,13 +37,13 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Home-About</h1>
+                    Mission-Vision</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="{{ route('home.index') }}" class="text-muted text-hover-primary">Home</a>
+                        <a href="{{ route('abouts.index') }}" class="text-muted text-hover-primary">About</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -52,7 +52,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Home-about</li>
+                    <li class="breadcrumb-item text-muted">Mission-Vision</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -65,31 +65,31 @@
 
     <div class="app-container container-fluid">
         <div style="background-color: #f0f0f0; padding: 20px;">
-            <h2 style="text-align: center;"> Home-About</h2>
+            <h2 style="text-align: center;">Mission-Vision</h2>
         </div>
 
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form action="{{ route('home-abouts.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('mission-visiones.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
+              
                 <div class="form-group">
-                    <label for="title" class="h5 mb-2">Title:</label>
-                    <input type="text" class="form-control mb-2" id="title" name="title"
-                        value="{{ old('title', $data->title) }}">
-                    @error('title')
+                    <label for="mission_description" class="h5 mb-2">Mission Description</label>
+                    <textarea class="form-control mb-2"  name="mission_description" id="mission_description" cols="30" rows="10">{{$data->mission_description}}</textarea>
+                    @error('mission_description')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="description" class="h5 mb-2">Description:</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control mb-2">
-                        {{$data->description}}
-                    </textarea>
-                    @error('description')
+                    <label for="vision_description" class="h5 mb-2">Vision Description</label>
+                    <textarea class="form-control mb-2"  name="vision_description" id="vision_description" cols="30" rows="10">{{$data->vision_description}}</textarea>
+                    @error('vision_description')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
+
+                
                 <div class="form-group">
                     <label for="image" class="h5 mb-2">Image:</label>
                     <input type="file" class="form-control mb-2" id="image" name="image">
@@ -101,7 +101,6 @@
                             alt="Current Image">
                     @endif
                 </div>
-
 
                 <button type="submit" class="btn btn-primary btn-sm mt-2">Update</button>
             </form>

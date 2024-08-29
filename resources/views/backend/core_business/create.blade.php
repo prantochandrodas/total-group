@@ -15,7 +15,7 @@
     @endif
 
     @section('title')
-        Core-Products 
+        Core-Business 
     @endsection
 
     <!-- validation errors -->

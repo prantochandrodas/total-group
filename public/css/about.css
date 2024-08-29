@@ -4,13 +4,20 @@
 .about_description p{
     color: #646464;
 }
-.about_images{
+.about_details{
     display: flex;
     flex-wrap: wrap;
 }
-.about_images img{
+.about_details_div{
+    margin: 20px 0px;
     width: 360px;
-    height: 122px;
+}
+.about_details_div h3{
+    color: black;
+}
+.about_details_div img{
+    width: 50px;
+    height: 50px;
 }
 .about_banner_img img{
     height: 100vh;
@@ -39,11 +46,19 @@
     text-align: center;
     margin-bottom: 40px;
 }
-.management img{
+/* .management img{
     width: 280px;
     height: 100%;
+} */
+.management_designation{
+    color: #005fac;
+    margin-bottom: 5px;
 }
-
+.management_name{
+    color: #005fac;
+    font-size: 34px;
+    font-weight: 700;
+}
 
 /* Responsive adjustments for smaller screens (e.g., mobile) */
 @media (max-width: 768px) {

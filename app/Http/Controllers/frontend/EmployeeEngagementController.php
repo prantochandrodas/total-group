@@ -14,11 +14,12 @@ class EmployeeEngagementController extends Controller
     }
 
     public function details(){
+        $application=Application::first();
         $imageSets = [
             ['https://cms.webmanza.com/uploads/IMG_2329_Large_cb075d1e20.JPG', 'https://cms.webmanza.com/uploads/IMG_2329_Large_cb075d1e20.JPG', 'https://cms.webmanza.com/uploads/IMG_2329_Large_cb075d1e20.JPG'],
             ['https://cms.webmanza.com/uploads/IMG_2329_Large_cb075d1e20.JPG', 'https://cms.webmanza.com/uploads/IMG_2329_Large_cb075d1e20.JPG', 'https://cms.webmanza.com/uploads/IMG_2329_Large_cb075d1e20.JPG'],
             // Add more sets as needed
         ];
-        return view('frontend.employee_engagement.details',compact('imageSets'));
+        return view('frontend.employee_engagement.details',compact('imageSets','application'));
     }
 }

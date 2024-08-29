@@ -27,8 +27,8 @@
             <img src="{{ asset('images/' . $about->image) }}" alt="About Us" class="d-none about_img d-md-block">
         </div>
         <div>
-            <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 ">{{ $about->title }}</h2>
-            <p class="fs-5 fs-sm-6 fs-md-5">{{ $about->description }}</p>
+            <h2 class="journy-heading fs-1 fw-bold fs-sm-3 fs-md-1 ">{{ $about->home_title }}</h2>
+            <p class="fs-5 fs-sm-6 fs-md-5">{{ $about->short_description }}</p>
             <a href="{{ route('abouts.index') }}" type="button" class="btn btn-primary">Read More</a>
         </div>
     </div>
@@ -536,7 +536,7 @@
             </div>
             <div class="map">
                 <a href="{{$contact->map_link}}" class="css-1wr59ft"><img alt="location"
-                        src="{{asset('images/'.$contact->map_image)}}" class="chakra-image css-2qcby8"></a>
+                        src="{{asset('images/'.$contact->map_image)}}" class="map_image"></a>
             </div>
         </div>
 

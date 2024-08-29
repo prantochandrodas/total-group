@@ -74,7 +74,7 @@ class AssociateBusinessController extends Controller
     {
         $application = Application::first();
         $data = AssociateBusiness::find($id);
-        return view('backend.our_brand.edit', compact('application', 'data'));
+        return view('backend.associate_business.edit', compact('application', 'data'));
     }
 
     public function update(Request $request, $id)

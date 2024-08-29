@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Application;
 use App\Models\AssociateBusiness;
 use App\Models\AssociateIndustry;
@@ -36,7 +37,7 @@ class HomeController extends Controller
         $products=Product::limit(4)->get();
         $application=Application::first();
         $banner=HomeBanner::first();
-        $about=HomeAbout::first();
+        $about=About::first();
         $milestones=Milestones::all();
         $milestonesImages=MilestonesImages::all();
         $core_business=CoreBusiness::all();

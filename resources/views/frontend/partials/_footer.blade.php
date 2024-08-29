@@ -4,7 +4,7 @@
             <img src="{{ asset('images/'.$application->logo) }}" alt="">
         </div>
         <div class="d-flex gap-4 flex-column flex-md-row">
-            <div class="d-flex footer_contact gap-2 align-items-center">
+            <div class="d-flex footer_contact gap-2 align-items-center justify-content-center">
                 <img src="https://edison-bd.com/images/round-phone.svg" alt="">
                 <div class="text-light">
                     <p>{{$application->phone_1}}</p>

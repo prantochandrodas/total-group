@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Headlines extends Model
 {
-    protected $fillable=['title','short_title'];
+    protected $fillable=['title','short_description'];
 }
